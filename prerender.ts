@@ -15,7 +15,7 @@ import { renderModuleFactory } from '@angular/platform-server';
 import * as fs from 'fs-extra';
 
 // Add routes manually that you need rendered
-const ROUTES = ['/'];
+const ROUTES = ['/', '/en', '/ru', '/ua'];
 
 const APP_NAME = 'fakedeposit';
 

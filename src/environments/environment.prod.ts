@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  //locales: 'http://www.fakedeposit.com.ua'
+  locales: 'http://localhost:8080'
 };

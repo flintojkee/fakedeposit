@@ -15,6 +15,7 @@
       "app",
       "camelCase"
     ],
+    "ban-types": false,
     "component-selector": [
       true,
       "element",

@@ -1,0 +1,12 @@
+<div class="checkbox">
+  <label class="checkbox__wrapper">
+    <input name="checkbox__input" [formControl]="control" type="checkbox" />
+    <span class="checkbox__checkmark" [class.checkbox__checkmark--round]="round"></span>
+    <span class="checkbox__label">
+      <ng-content></ng-content>
+    </span>
+  </label>
+  <div class="checkbox__error fw" *ngIf="isError()">
+    {{ errorText }}<i class="icn icn-error checkbox__error-icn"></i>
+  </div>
+</div>

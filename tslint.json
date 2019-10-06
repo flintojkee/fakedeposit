@@ -12,14 +12,14 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "fd",
       "camelCase"
     ],
     "ban-types": false,
     "component-selector": [
       true,
       "element",
-      "app",
+      "fd",
       "kebab-case"
     ],
     "import-blacklist": [

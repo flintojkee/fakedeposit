@@ -8,13 +8,12 @@ import { LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings, ManualPar
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Location } from '@angular/common';
 import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core';
+
 export const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '',
-  }
+  { path: '', pathMatch: 'full', redirectTo: '/' },
+  { path: 'calculator', loadChildren: () => import('./calculator/calculator.module').then(m => m.CalculatorModule) },
+  { path: '**', redirectTo: '' }
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -24,7 +23,6 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'fakedeposit' }),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -42,6 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),
+    CoreModule,
     RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]

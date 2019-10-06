@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="calculator">
+    <form [formGroup]="calculatorForm">
+      <fd-input [control]="initial" label="Summ" type="number"></fd-input>
+      <fd-input [control]="interest" label="Interest" type="number"></fd-input>
+      <fd-input [control]="term" label="Term" type="number"></fd-input>
+    </form>
+    <fd-button (clicked)="calculate()" [type]="'default'" [color]="'primary'">Calculate</fd-button>
+    <p *ngIf="result">Result: {{ result | number : '1.2-2' }}</p>
+  </div>
+</div>

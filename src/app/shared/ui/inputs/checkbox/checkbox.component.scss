@@ -1,0 +1,78 @@
+@import 'global';
+.checkbox {
+  &__label {
+    line-height: 1.5;
+    color: $dark;
+    font-size: 1em;
+    display: inline-block;
+    @media screen and (max-width: $xs) {
+      font-size: 0.8em;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    display: block;
+    position: relative;
+    padding-left: 27px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 4px;
+    &:hover input ~ .checkbox__checkmark {
+      background-color: #ccc;
+    }
+    input:checked ~ .checkbox__checkmark:after {
+      display: block;
+    }
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+  }
+  &__checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: solid 1px #eeeeee;
+    background-color: #ffffff;
+    &--round {
+      border-radius: 50%;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 0;
+      width: 5px;
+      height: 9px;
+      border: solid $dark;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  &__error {
+    padding-left: 27px;
+    color: $danger;
+    font-size: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    @media screen and (max-width: $xs) {
+      font-size: 11px;
+    }
+    &-icn {
+      margin-left: 5px;
+    }
+  }
+}
+

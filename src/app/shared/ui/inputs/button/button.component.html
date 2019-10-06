@@ -1,0 +1,14 @@
+<ng-template #content>
+
+  <span [class]="icon" *ngIf="icon && !isLoading && iconPos === 'left'"></span>
+  <span class="btn__label" *ngIf="label && !isLoading">{{ label }}</span>
+  <span [class]="icon" *ngIf="icon && !isLoading && iconPos === 'right'"></span>
+</ng-template>
+<button
+  (click)="clicked.emit($event)"
+  class="btn btn--{{ type }} btn--{{ color }}"
+  type="button"
+  [disabled]="isDisabled"
+>
+  <ng-content></ng-content>
+</button>

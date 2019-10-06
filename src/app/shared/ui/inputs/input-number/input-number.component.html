@@ -1,0 +1,13 @@
+<div class="input-number" [class.input-number--disabled]="disabled">
+  <h6 class="input-number__label">{{label}}</h6>
+  <div class="input-number__inner">
+    <button (click)="decrement()" type="button" class="input-number__button-minus">-</button>
+    <input
+            class="input-number__field"
+            name="quantity"
+            [formControl]="control"
+            type="number"
+            readonly>
+    <button (click)="increment()" type="button" class="input-number__button-plus">+</button>
+  </div>
+</div>

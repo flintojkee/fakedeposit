@@ -1,0 +1,62 @@
+// .input-number
+//   width: 100%
+//   position: relative
+//   transition: opacity .3s ease
+//   &--disabled &__inner
+//     opacity: .5
+//   &__label
+//     padding-bottom: .5em
+//     text-transform: uppercase
+//     font-weight: normal
+//     font-size: .75em
+//     @media screen and (max-width: $xs)
+//       font-size: 0.7em
+//   &__field
+//     width: 100%
+//     height: 40px
+//     border-radius: 4px
+//     background-color: #ffffff
+//     border: 1px solid #eeeeee
+//     text-align: center
+//     color: $textColor
+//     font-family: $secondaryRg
+//     line-height: 1.13
+//     font-size: 1em
+//     outline: none
+//     cursor: default
+//     @media screen and (max-width: $xs)
+//       font-size: 0.8em
+//   &__button-minus,&__button-plus
+//     cursor: pointer
+//     background: none
+//     outline: none
+//     text-decoration: none
+//     font-size: 1em
+//     border: none
+//     color: #dedede
+//     font-family: $secondaryRg
+//     font-size: 1.5em
+//     cursor: pointer
+//     position: absolute
+//     z-index: 1
+//     transition: color .3s
+//     &:hover
+//       color: #898989
+//   &__button-minus
+//     bottom: 7px
+//     left: 20px
+//   &__button-plus
+//     bottom: 7px
+//     right: 20px
+
+
+
+// input[type="number"]
+//   -webkit-appearance: textfield
+//   -moz-appearance: textfield
+//   appearance: textfield
+
+
+// input[type=number]::-webkit-inner-spin-button,
+// input[type=number]::-webkit-outer-spin-button
+//   -webkit-appearance: none

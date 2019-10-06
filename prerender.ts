@@ -15,15 +15,28 @@ import { renderModuleFactory } from '@angular/platform-server';
 import * as fs from 'fs-extra';
 
 // Add routes manually that you need rendered
-const ROUTES = ['/', '/en', '/ru', '/ua'];
+const ROUTES = [
+  '/en',
+  '/ru',
+  '/ua',
+  'en/calculator',
+  'ru/calculator',
+  'ua/calculator',
+  'en/deposit-guarantee',
+  'ru/deposit-guarantee',
+  'ua/deposit-guarantee',
+  'en/deposit-tax',
+  'ru/deposit-tax',
+  'ua/deposit-tax',
+  'en/deposit-bank-rates',
+  'ru/deposit-bank-rates',
+  'ua/deposit-bank-rates'
+];
 
 const APP_NAME = 'fakedeposit';
 
 // leave this as require(), imported via webpack
-const {
-  AppServerModuleNgFactory,
-  LAZY_MODULE_MAP
-} = require(`./dist/${APP_NAME}-server/main`);
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./dist/${APP_NAME}-server/main`);
 
 enableProdMode();
 

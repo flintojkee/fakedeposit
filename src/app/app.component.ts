@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
+  selector: 'fd-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

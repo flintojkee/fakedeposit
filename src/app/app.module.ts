@@ -14,7 +14,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Location } from '@angular/common';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core';
-import { LocalizeRouterHttpLoader } from 'localize-router-http-loader';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '' },
@@ -72,9 +71,8 @@ export function createTranslateLoaderRouter(
     LocalizeRouterModule.forRoot(routes, {
       parser: {
         provide: LocalizeParser,
-        useFactory: (translate, location, settings, http) =>
-          new LocalizeRouterHttpLoader(translate, location, settings, http),
-        deps: [TranslateService, Location, LocalizeRouterSettings, HttpClient]
+        useFactory: (createTranslateLoaderRouter),
+        deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),
     RouterModule.forRoot(routes),

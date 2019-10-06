@@ -6,14 +6,16 @@ import {
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-
+import { LazyUniversalModuleLoaderProvider } from 'localize-router-lazy-universal-module-loader';
 @NgModule({
   imports: [
+    // AppModule - FIRST!!!
     AppModule,
     ServerModule,
-    ServerTransferStateModule, //  <-- needed for state transfer
-    ModuleMapLoaderModule // <-- needed for lazy-loaded routes
+    ServerTransferStateModule,
+    ModuleMapLoaderModule,
   ],
+  providers: [LazyUniversalModuleLoaderProvider],
   bootstrap: [AppComponent]
 })
 export class AppServerModule {}

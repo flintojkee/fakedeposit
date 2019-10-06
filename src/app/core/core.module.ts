@@ -6,7 +6,7 @@ import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   imports: [CommonModule, LayoutModule, PagesModule],
-  exports: [],
+  exports: [LayoutModule],
   declarations: []
 })
 export class CoreModule {

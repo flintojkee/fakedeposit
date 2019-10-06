@@ -1,1 +1,31 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container">
+    <div class="header__body fw">
+      <img class="header__logo" src="assets/images/fakedeposit-logo.svg" alt="" />
+      <nav class="header__nav">
+        <ul>
+          <li>
+            <a [routerLink]="['/calculator' | localize]" routerLinkActive="router-link-active" href=""
+              >Депозитний калькулятор</a
+            >
+          </li>
+          <li>
+            <a [routerLink]="['/deposit-guarantee' | localize]" routerLinkActive="router-link-active" href=""
+              >Фонд гарантування вкладів</a
+            >
+          </li>
+          <li>
+            <a [routerLink]="['/deposit-tax' | localize]" routerLinkActive="router-link-active" href=""
+              >Податок на депозит</a
+            >
+          </li>
+          <li>
+            <a [routerLink]="['/deposit-bank-rates' | localize]" routerLinkActive="router-link-active" href=""
+              >Ставки в банках України</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

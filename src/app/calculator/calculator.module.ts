@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CalculatorRoutingModule } from './calculator-routing.module';
 import { CalculatorComponent } from './pages/calculator.component';
 import { SharedModule } from '@fd/shared';
+import { LocalizeRouterModule } from 'localize-router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { SharedModule } from '@fd/shared';
   imports: [
     CommonModule,
     CalculatorRoutingModule,
-    SharedModule
+    SharedModule,
+    LocalizeRouterModule,
+    TranslateModule.forChild()
   ]
 })
 export class CalculatorModule { }

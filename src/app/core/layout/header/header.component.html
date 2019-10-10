@@ -5,23 +5,35 @@
       <nav class="header__nav">
         <ul>
           <li>
-            <a [routerLink]="['/calculator' | localize]" routerLinkActive="router-link-active" href=""
-              >Депозитний калькулятор</a
+            <a
+              [routerLink]="['/calculator' | localize]"
+              routerLinkActive="router-link-active"
+              href=""
+              >{{'HEADER.calculator' | translate}}</a
             >
           </li>
           <li>
-            <a [routerLink]="['/deposit-guarantee' | localize]" routerLinkActive="router-link-active" href=""
-              >Фонд гарантування вкладів</a
+            <a
+              [routerLink]="['/deposit-guarantee' | localize]"
+              routerLinkActive="router-link-active"
+              href=""
+              >{{'HEADER.deposit-guarantee' | translate}}</a
             >
           </li>
           <li>
-            <a [routerLink]="['/deposit-tax' | localize]" routerLinkActive="router-link-active" href=""
-              >Податок на депозит</a
+            <a
+              [routerLink]="['/deposit-tax' | localize]"
+              routerLinkActive="router-link-active"
+              href=""
+              >{{'HEADER.deposit-tax' | translate}}</a
             >
           </li>
           <li>
-            <a [routerLink]="['/deposit-bank-rates' | localize]" routerLinkActive="router-link-active" href=""
-              >Ставки в банках України</a
+            <a
+              [routerLink]="['/deposit-bank-rates' | localize]"
+              routerLinkActive="router-link-active"
+              href=""
+              >{{'HEADER.deposit-bank-rates' | translate}}</a
             >
           </li>
         </ul>

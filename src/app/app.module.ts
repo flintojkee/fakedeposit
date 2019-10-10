@@ -14,6 +14,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Location } from '@angular/common';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '' },
@@ -76,6 +78,7 @@ export function createTranslateLoaderRouter(
       }
     }),
     RouterModule.forRoot(routes),
+    Angulartics2Module.forRoot(),
     CoreModule
   ],
   bootstrap: [AppComponent]

@@ -1,3 +1,26 @@
 .calculator {
-  max-width: 500px;
+  &__header {
+    background-color: #d0d2db;
+    margin-bottom: 50px;
+    &-text {
+      margin: 0;
+      &-wrapper {
+        width: 75%;
+        padding: 50px 0;
+      }
+    }
+    &-logo {
+      width: 25%;
+      padding: 25px;
+      background: #070f31;
+      align-items: center;
+      justify-content: center;
+      &-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #feaa30;
+      }
+    }
+  }
 }

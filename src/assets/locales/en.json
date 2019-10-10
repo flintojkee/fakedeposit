@@ -1,3 +1,8 @@
 {
-  "test": "Test example"
+  "HEADER": {
+    "calculator": "Deposit calculator",
+    "deposit-guarantee": "Deposit guarantee",
+    "deposit-bank-rates": "Depostit bank rates",
+    "deposit-tax": "Deposit tax"
+  }
 }

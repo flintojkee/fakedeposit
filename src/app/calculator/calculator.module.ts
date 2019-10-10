@@ -7,7 +7,6 @@ import { SharedModule } from '@fd/shared';
 import { LocalizeRouterModule } from 'localize-router';
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @NgModule({
   declarations: [CalculatorComponent],
   imports: [
@@ -16,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
     SharedModule,
     LocalizeRouterModule,
     TranslateModule.forChild()
-  ]
+  ],
+  providers: []
 })
-export class CalculatorModule { }
+export class CalculatorModule {}

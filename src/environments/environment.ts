@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  locales: 'http://localhost:4200'
+  locales: 'http://localhost:4200',
+  enableGoogleAnalytics: false,
+  googleAnalyticsKey: 'UA-149688512-1',
+  googleTagManagerKey: 'GTM-WD542V2',
 };
 
 /*

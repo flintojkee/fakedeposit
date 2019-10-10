@@ -1,11 +1,34 @@
-<div class="container">
-  <div class="calculator">
-    <form [formGroup]="calculatorForm">
-      <fd-input [control]="initial" label="Summ" type="number"></fd-input>
-      <fd-input [control]="interest" label="Interest" type="number"></fd-input>
-      <fd-input [control]="term" label="Term" type="number"></fd-input>
-    </form>
-    <fd-button (clicked)="calculate()" [type]="'default'" [color]="'primary'">Calculate</fd-button>
-    <p *ngIf="result">Result: {{ result | number : '1.2-2' }}</p>
+<div class="calculator">
+  <div class="calculator__header">
+    <div class="container">
+      <div class="calculator__header-wrapper fw">
+        <div class="calculator__header-text-wrapper fw">
+          <h1 class="calculator__header-text">Депозитний калькулятор</h1>
+        </div>
+        <div class="calculator__header-logo fw">
+          <div class="calculator__header-logo-image"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+      <form [formGroup]="calculatorForm">
+        <fd-input [control]="initial" label="Summ" type="number"></fd-input>
+        <fd-input [control]="interest" label="Interest" type="number"></fd-input>
+        <fd-input [control]="term" label="Term" type="number"></fd-input>
+      </form>
+      <fd-button
+        angulartics2On="click"
+        angularticsAction="Calculate"
+        angularticsCategory="Calculator"
+        (clicked)="calculate()"
+        [type]="'default'"
+        [color]="'primary'"
+        >Calculate</fd-button
+      >
+      <p *ngIf="result">Result: {{ result | number: '1.2-2' }}</p>
+    </div>
+    <div [innerHTML]="calculatorPageData"></div>
   </div>
 </div>

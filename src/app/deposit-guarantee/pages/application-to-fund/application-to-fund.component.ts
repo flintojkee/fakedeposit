@@ -1,18 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { takeUntil, map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map, takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'fd-deposit-bank-rates',
-  templateUrl: './deposit-bank-rates.component.html',
-  styleUrls: ['./deposit-bank-rates.component.scss']
+  selector: 'fd-application-to-fund',
+  templateUrl: './application-to-fund.component.html',
+  styleUrls: ['./application-to-fund.component.scss']
 })
-export class DepositBankRatesComponent implements OnInit, OnDestroy {
+export class ApplicationToFundComponent implements OnInit, OnDestroy {
+
   pageData: any;
   destroyed$ = new Subject();
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data
@@ -25,8 +26,10 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
       });
   }
 
+
   ngOnDestroy() {
     this.destroyed$.next();
     this.destroyed$.complete();
   }
 }
+

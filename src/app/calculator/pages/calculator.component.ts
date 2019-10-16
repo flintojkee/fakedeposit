@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { CalculatorService } from '../shared/services/calculator.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, map } from 'rxjs/operators';
 export enum Currency {
   dollar = '$',
   hryvnia = '₴',
@@ -17,7 +17,7 @@ export enum Currency {
 export class CalculatorComponent implements OnInit, OnDestroy {
   calculatorForm: FormGroup;
   result: number;
-  calculatorPageData;
+  pageData: any;
   currency = Currency.dollar;
   private destroyed$ = new Subject();
 
@@ -25,9 +25,14 @@ export class CalculatorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.createForm();
-    this.route.data.pipe(takeUntil(this.destroyed$)).subscribe((data) => {
-      this.calculatorPageData = data.data.items[0].intro;
-    });
+    this.route.data
+      .pipe(
+        map((res) => res.data),
+        takeUntil(this.destroyed$)
+      )
+      .subscribe((data) => {
+        this.pageData = data;
+      });
   }
   ngOnDestroy() {
     this.destroyed$.next();

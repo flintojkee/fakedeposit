@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '',
     component: CalculatorComponent,
     resolve: { data: PageResolver },
-    data: { page: 'calculator'}
+    data: { page: 'calculator' }
   }
 ];
 

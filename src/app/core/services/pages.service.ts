@@ -23,14 +23,20 @@ export class PagesService {
     'deposit-bank-rates': {
       type: 'deposit_bank_rates',
       name: 'DepositBankRatesPage'
+    },
+    'application-to-fund': {
+      type: 'application_to_fund',
+      name: 'ApplicationToFundPage'
+    },
+    'fund-law': {
+      type: 'fund_law',
+      name: 'FundLawPage'
     }
   };
   api = 'https://fakedeposit-cms.herokuapp.com/api/v2/pages/?type=';
   getPageData(page: string) {
     return this.http
       .get<any>(`${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=_,text`)
-      .pipe(
-        map((res) => res.items[0].text)
-      );
+      .pipe(map((res) => res.items[0].text));
   }
 }

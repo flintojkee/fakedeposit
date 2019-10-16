@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DepositBankRatesComponent } from './pages/deposit-bank-rates.component';
 import { LocalizeRouterModule } from 'localize-router';
 import { TranslateModule } from '@ngx-translate/core';
-import { resolve } from 'url';
 import { PageResolver } from '@fd/core/services';
+import { SharedModule } from '@fd/shared';
 
 const routes: Routes = [
   {
@@ -20,6 +20,7 @@ const routes: Routes = [
   declarations: [DepositBankRatesComponent],
   imports: [
     CommonModule,
+    SharedModule,
     TranslateModule,
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes)

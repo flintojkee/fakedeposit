@@ -4,6 +4,7 @@ import { CalculatorService } from '../shared/services/calculator.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
+import { Meta } from '@angular/platform-browser';
 export enum Currency {
   dollar = '$',
   hryvnia = '₴',
@@ -21,10 +22,15 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   currency = Currency.dollar;
   private destroyed$ = new Subject();
 
-  constructor(private calculatorService: CalculatorService, private route: ActivatedRoute) {}
+  constructor(
+    private calculatorService: CalculatorService,
+    private route: ActivatedRoute,
+    private metaService: Meta
+  ) {}
 
   ngOnInit() {
     this.createForm();
+    this.metaService.addTag({name: 'robots', content: 'all'});
     this.route.data
       .pipe(
         map((res) => res.data),

@@ -15,10 +15,9 @@ import { Location } from '@angular/common';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '' },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'calculator',
     loadChildren: () => import('./calculator/calculator.module').then((m) => m.CalculatorModule)
@@ -45,7 +44,8 @@ export const routes: Routes = [
     path: 'about-project',
     loadChildren: () =>
       import('./about-project/about-project.module').then((m) => m.AboutProjectModule)
-  }
+  },
+  { path: 'home', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -73,7 +73,7 @@ export function createTranslateLoaderRouter(
     LocalizeRouterModule.forRoot(routes, {
       parser: {
         provide: LocalizeParser,
-        useFactory: (createTranslateLoaderRouter),
+        useFactory: createTranslateLoaderRouter,
         deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),

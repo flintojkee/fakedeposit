@@ -1,32 +1,31 @@
 <div class="calculator">
-  <div class="calculator__header">
-    <div class="container">
-      <div class="calculator__header-wrapper fw">
-        <div class="calculator__header-text-wrapper fw">
-          <h1 class="calculator__header-text">Депозитний калькулятор</h1>
-        </div>
-        <div class="calculator__header-logo fw">
-          <div class="calculator__header-logo-image"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <fd-page-header>{{ 'HEADER.calculator' | translate }}</fd-page-header>
   <div class="container">
     <div class="calculator__form-wrapper">
-      <form [formGroup]="calculatorForm"  class="calculator__form">
+      <form [formGroup]="calculatorForm" class="calculator__form">
         <div class="calculator__form-currency fw">
           <div class="calculator__form-currency-input">
-            <fd-input [placeholder]="'0'" [fontSize]="'42'" [control]="initial" type="number"></fd-input>
+            <fd-input
+              [placeholder]="'0'"
+              [fontSize]="'42'"
+              [control]="initial"
+              type="number"
+            ></fd-input>
           </div>
           <div class="calculator__form-currency-logo" (click)="changeCurrency()">
             {{ currency }}
           </div>
           <div class="calculator__form-currency-label fw">
-            Initial deposit
+            Початковий внесок
           </div>
         </div>
-        <fd-input [fontSize]="'26'" [control]="interest" label="Interest" type="number"></fd-input>
-        <fd-input [fontSize]="'26'" [control]="term" label="Term" type="number"></fd-input>
+        <fd-input
+          [fontSize]="'26'"
+          [control]="interest"
+          [label]="'Відсоток'"
+          type="number"
+        ></fd-input>
+        <fd-input [fontSize]="'26'" [control]="term" [label]="'Термін'" type="number"></fd-input>
       </form>
       <fd-button
         angulartics2On="click"
@@ -35,9 +34,9 @@
         (clicked)="calculate()"
         [type]="'default'"
         [color]="'primary'"
-        >Calculate</fd-button
+        >Порахувати</fd-button
       >
-      <p *ngIf="result">Result: {{ result | number: '1.2-2' }}</p>
+      <p *ngIf="result">Результат: {{ result | number: '1.2-2' }}</p>
     </div>
     <div [innerHTML]="pageData"></div>
   </div>

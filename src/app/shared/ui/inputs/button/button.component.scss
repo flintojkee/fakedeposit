@@ -30,7 +30,7 @@
     background-color: $primary;
     color: $light;
     &:hover {
-      background-color: $primary-tint;
+      opacity: 0.8;
     }
   }
 

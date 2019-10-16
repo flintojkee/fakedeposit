@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputsModule } from './ui';
+import { InputsModule, PageHeaderComponent } from './ui';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [],
+  declarations: [PageHeaderComponent],
   imports: [
     CommonModule,
     InputsModule,
@@ -17,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    PageHeaderComponent
   ]
 })
 export class SharedModule {}

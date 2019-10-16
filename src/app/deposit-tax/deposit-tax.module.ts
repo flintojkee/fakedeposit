@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { DepositTaxComponent } from './deposit-tax.component';
 import { PageResolver } from '@fd/core/services';
+import { SharedModule } from '@fd/shared';
+import { LocalizeRouterModule } from 'localize-router';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -15,6 +18,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [DepositTaxComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [
+    CommonModule,
+    LocalizeRouterModule,
+    SharedModule,
+    TranslateModule.forChild(),
+    LocalizeRouterModule.forChild(routes),
+    RouterModule.forChild(routes)
+  ]
 })
 export class DepositTaxModule {}

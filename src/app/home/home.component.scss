@@ -1,0 +1,8 @@
+.home {
+  &__header, &__image {
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    width: 50%;
+  }
+}

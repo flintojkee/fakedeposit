@@ -1,12 +1,13 @@
+@import 'global';
 .header {
-  background-color: #FCFCFC;
-  color: #070F31;
+  background-color: #fcfcfc;
+  color: #070f31;
   padding: 10px 0;
   &__logo {
-    height: 35px;
+    height: 50px;
   }
   &__body {
-    align-items: center
+    align-items: center;
   }
   &__nav {
     & > ul {
@@ -20,8 +21,42 @@
         letter-spacing: 0.8px;
         padding: 5px 10px;
         &:not(:last-child) {
-          margin-right: 10px
+          margin-right: 10px;
         }
+        a {
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  &:hover .dropdown__content {
+    display: flex;
+  }
+  &__content {
+    display: none;
+    background-color: white;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 10px;
+    border: 1px solid $medium;
+    border-radius: 4px;
+    &:hover {
+      display: flex;
+    }
+    a {
+      &:hover {
+        opacity: 0.5;
+      }
+      &:not(:last-child) {
+        margin-bottom: 5px;
       }
     }
   }

@@ -1,39 +1,56 @@
 <header class="header">
   <div class="container">
     <div class="header__body fw">
-      <img class="header__logo" src="assets/images/fakedeposit-logo.svg" alt="" />
+      <a [routerLink]="['/home' | localize]" routerLinkActive="router-link-active" href="/home">
+        <img class="header__logo" src="assets/images/fakedeposit-logo-alt.svg" alt="" />
+      </a>
+
       <nav class="header__nav">
         <ul>
           <li>
             <a
               [routerLink]="['/calculator' | localize]"
               routerLinkActive="router-link-active"
-              href=""
-              >{{'HEADER.calculator' | translate}}</a
+              href="/calculator"
+              >{{ 'HEADER.calculator' | translate }}</a
             >
           </li>
-          <li>
+          <li class="dropdown">
             <a
               [routerLink]="['/deposit-guarantee' | localize]"
               routerLinkActive="router-link-active"
-              href=""
-              >{{'HEADER.deposit-guarantee' | translate}}</a
-            >
+              href="/deposit-guarantee"
+              >{{ 'HEADER.deposit-guarantee' | translate }}
+            </a>
+            <div class="dropdown__content">
+              <a
+                [routerLink]="['/deposit-guarantee/application-to-fund' | localize]"
+                routerLinkActive="router-link-active"
+                href="/application-to-fund"
+                >{{ 'HEADER.application-to-fund' | translate }}</a
+              >
+              <a
+                [routerLink]="['/deposit-guarantee/fund-law' | localize]"
+                routerLinkActive="router-link-active"
+                href="'/fund-law"
+                >{{ 'HEADER.fund-law' | translate }}</a
+              >
+            </div>
           </li>
           <li>
             <a
               [routerLink]="['/deposit-tax' | localize]"
               routerLinkActive="router-link-active"
-              href=""
-              >{{'HEADER.deposit-tax' | translate}}</a
+              href="/deposit-tax"
+              >{{ 'HEADER.deposit-tax' | translate }}</a
             >
           </li>
           <li>
             <a
               [routerLink]="['/deposit-bank-rates' | localize]"
               routerLinkActive="router-link-active"
-              href=""
-              >{{'HEADER.deposit-bank-rates' | translate}}</a
+              href="/deposit-bank-rates"
+              >{{ 'HEADER.deposit-bank-rates' | translate }}</a
             >
           </li>
         </ul>

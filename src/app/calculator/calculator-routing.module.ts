@@ -16,7 +16,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [TranslateModule, LocalizeRouterModule.forChild(routes), RouterModule.forChild(routes)],
+  imports: [
+    LocalizeRouterModule.forChild(routes),
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule],
   providers: [PageResolver]
 })

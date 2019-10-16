@@ -5,14 +5,11 @@ import { DepositGuaranteeComponent } from './pages/deposit-guarantee/deposit-gua
 import { PageResolver } from '@fd/core/services';
 import { FundLawComponent } from './pages/fund-law/fund-law.component';
 import { ApplicationToFundComponent } from './pages/application-to-fund/application-to-fund.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { LocalizeRouterModule } from 'localize-router';
+import { SharedModule } from '@fd/shared';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DepositGuaranteeComponent,
-    resolve: { data: PageResolver },
-    data: { page: 'deposit-guarantee' }
-  },
   {
     path: 'fund-law',
     component: FundLawComponent,
@@ -20,15 +17,29 @@ const routes: Routes = [
     data: { page: 'fund-law' }
   },
   {
-    path: 'application-fund',
+    path: 'application-to-fund',
     component: ApplicationToFundComponent,
     resolve: { data: PageResolver },
-    data: { page: 'application-fund' }
-  }
+    data: { page: 'application-to-fund' }
+  },
+  {
+    path: '',
+    component: DepositGuaranteeComponent,
+    resolve: { data: PageResolver },
+    data: { page: 'deposit-guarantee' }
+  },
+
 ];
 
 @NgModule({
   declarations: [DepositGuaranteeComponent, FundLawComponent, ApplicationToFundComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [
+    CommonModule,
+    LocalizeRouterModule,
+    SharedModule,
+    TranslateModule.forChild(),
+    LocalizeRouterModule.forChild(routes),
+    RouterModule.forChild(routes)
+  ]
 })
 export class DepositGuaranteeModule {}

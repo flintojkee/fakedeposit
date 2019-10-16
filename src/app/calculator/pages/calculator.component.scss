@@ -23,4 +23,50 @@
       }
     }
   }
+  &__form {
+    margin-bottom: 15px;
+    &-wrapper {
+      max-width: 50%;
+      background-color: #d0d2db;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 50px;
+    }
+    &-currency {
+      justify-content: flex-start;
+      &-input {
+        width: 55%;
+      }
+      &-logo {
+        margin-left: -3px;
+        margin-right: 10px;
+        z-index: 1;
+        width: 15%;
+        max-height: 74px;
+        text-align: center;
+        color: #fff;
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 1.5;
+        background: #faab36;
+        border: solid 0.8px #d7d7d7;
+        border-left: none;
+        box-sizing: border-box;
+        border-radius: 0px 5px 5px 0px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+          background: #d68205;
+        }
+      }
+      &-label {
+        font-size: 28px;
+        width: 25%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }

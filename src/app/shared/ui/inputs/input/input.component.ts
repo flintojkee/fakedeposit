@@ -12,6 +12,7 @@ export class InputComponent implements OnInit {
   @Input() patternError = 'Invalid format';
   @Input() placeholder = '';
   @Input() control: FormControl;
+  @Input() fontSize = '16';
 
   constructor() {}
 

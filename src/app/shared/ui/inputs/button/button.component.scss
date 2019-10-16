@@ -13,7 +13,9 @@
   border-radius: 4px;
   padding: 5px 15px;
   transition: .5s;
-  >
+  @media screen and (min-width: $md) {
+    max-width: 320px;
+  }
   &:disabled {
     cursor: default;
     opacity: .5;

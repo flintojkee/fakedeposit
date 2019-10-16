@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DepositGuaranteeComponent } from './deposit-guarantee.component';
+import { DepositGuaranteeComponent } from './pages/deposit-guarantee.component';
 
 
 const routes: Routes = [

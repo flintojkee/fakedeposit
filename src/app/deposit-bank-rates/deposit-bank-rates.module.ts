@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DepositBankRatesComponent } from './deposit-bank-rates.component';
+import { DepositBankRatesComponent } from './pages/deposit-bank-rates.component';
 import { LocalizeRouterModule } from 'localize-router';
 import { TranslateModule } from '@ngx-translate/core';
 

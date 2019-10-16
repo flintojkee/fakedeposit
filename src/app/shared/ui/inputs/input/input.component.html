@@ -1,12 +1,9 @@
-<div class="input">
-  <label
-    *ngIf="label"
-    class="input__label"
-    [class.input__label--error]="isError()"
-  >
+<div class="input" [style.font-size.px]="fontSize">
+  <label *ngIf="label" class="input__label" [class.input__label--error]="isError()">
     {{ label }}
   </label>
   <input
+    [style.font-size.px]="fontSize"
     class="input__field"
     [type]="type"
     [placeholder]="placeholder"

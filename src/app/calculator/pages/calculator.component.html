@@ -12,11 +12,21 @@
     </div>
   </div>
   <div class="container">
-    <div>
-      <form [formGroup]="calculatorForm">
-        <fd-input [control]="initial" label="Summ" type="number"></fd-input>
-        <fd-input [control]="interest" label="Interest" type="number"></fd-input>
-        <fd-input [control]="term" label="Term" type="number"></fd-input>
+    <div class="calculator__form-wrapper">
+      <form [formGroup]="calculatorForm"  class="calculator__form">
+        <div class="calculator__form-currency fw">
+          <div class="calculator__form-currency-input">
+            <fd-input [placeholder]="'0'" [fontSize]="'42'" [control]="initial" type="number"></fd-input>
+          </div>
+          <div class="calculator__form-currency-logo" (click)="changeCurrency()">
+            {{ currency }}
+          </div>
+          <div class="calculator__form-currency-label fw">
+            Initial deposit
+          </div>
+        </div>
+        <fd-input [fontSize]="'26'" [control]="interest" label="Interest" type="number"></fd-input>
+        <fd-input [fontSize]="'26'" [control]="term" label="Term" type="number"></fd-input>
       </form>
       <fd-button
         angulartics2On="click"

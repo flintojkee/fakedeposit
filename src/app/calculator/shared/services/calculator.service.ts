@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { OptionalType, fieldsValidators } from '@fd/shared/models';
 import { Calculator } from '@fd/shared/models/calculator.model';
 import { requiredValidator } from '@fd/shared/ui';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class CalculatorService {
   constructor(
     private formService: FormService,
-    private formBuilder: FormBuilder,
-    private http: HttpClient
+    private formBuilder: FormBuilder
   ) {}
 
   createCalculatorForm(): FormGroup {
@@ -33,7 +31,5 @@ export class CalculatorService {
     return initial * Math.pow(1 + interest / 100, term);
   }
 
-  getCalculatorPageData() {
-    return this.http.get('https://fakedeposit-cms.herokuapp.com/api/v2/pages/?type=calculator.CalculatorPage&fields=_,intro');
-  }
+
 }

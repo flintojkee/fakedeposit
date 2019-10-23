@@ -1,6 +1,6 @@
-# AngularPrerenderStarter
+# Angular Prerender Project Fakedeposit
 
-Angular Prerender Project with perfect SEO
+Angular Prerender Project with perfect SEO about fixed deposit calculator
 
 https://www.fakedeposit.com.ua/en/home/
 

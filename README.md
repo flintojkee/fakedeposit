@@ -1,6 +1,8 @@
 # AngularPrerenderStarter
 
-Angular Prerender Starter Project 
+Angular Prerender Project with perfect SEO
+
+https://www.fakedeposit.com.ua/en/home/
 
 ## Prerequisites
 
@@ -25,11 +27,3 @@ npm run build:all
 ```
 npm run serve:prerender
 ```
-## Deploy To Firebase
-
-```
-firebase init hosting
-```
->folder: dist/cvzilla
-
->single page app: No

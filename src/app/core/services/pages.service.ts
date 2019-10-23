@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PagesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private translateService: TranslateService) {}
   private pages = {
     calculator: {
       type: 'calculator',
@@ -36,7 +37,9 @@ export class PagesService {
   api = 'https://fakedeposit-cms.herokuapp.com/api/v2/pages/?type=';
   getPageData(page: string) {
     return this.http
-      .get<any>(`${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=_,text`)
+      .get<any>(
+        `${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=_,text&slug=${this.pages[page].type}-${this.translateService.currentLang}`
+      )
       .pipe(map((res) => res.items[0].text));
   }
 }

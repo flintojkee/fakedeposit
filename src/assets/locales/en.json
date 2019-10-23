@@ -2,7 +2,47 @@
   "HEADER": {
     "calculator": "Deposit calculator",
     "deposit-guarantee": "Deposit guarantee",
+    "fund-law": "Law on Deposit Guarantee Fund",
+    "application-to-fund": "Application for Deposit Guarantee Fund",
     "deposit-bank-rates": "Depostit bank rates",
     "deposit-tax": "Deposit tax"
+  },
+  "META": {
+    "calculator":  {
+      "title": "Fakedeposit | Deposit calculator",
+      "description": "The deposit calculator will help you calculate the amount of the deposit up to the time of repayment and the interest received on the deposit for any term deposit with banks.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/calculator/"
+    },
+    "deposit-guarantee":  {
+      "title": "Fakedeposit | Deposit guarantee",
+      "description": "The Deposit Guarantee Fund is an institution that guarantees the repayment of deposits in the event of bank liquidation. The amount of compensation depends on the total deposit in one bank.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-guarantee/"
+    },
+    "fund-law":  {
+      "title": "Fakedeposit | Law on Deposit Guarantee Fund",
+      "description": "The Law of Ukraine on the Deposit Guarantee System of individuals is the main tool for investor protection.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-guarantee/fund-law/"
+    },
+    "application-to-fund":  {
+      "title": "Fakedeposit | Application for Deposit Guarantee Fund",
+      "description": "In order for depositors to receive payments, it is necessary to send an application to the Deposit Guarantee Fund of individuals. The application is written according to an officially established model.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-guarantee/application-to-fund/"
+    },
+    "deposit-bank-rates":  {
+      "title": "Fakedeposit | Depostit bank rates",
+      "description": "The most profitable deposits in banks of Ukraine. Compare bank deposit rates and choose the best deal.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-bank-rates/"
+    },
+    "deposit-tax":  {
+      "title": "Fakedeposit | Deposit tax",
+      "description": "Deposit income equals all other income and is therefore taxed. Income tax is calculated depending on the interest paid.",
+      "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-tax/"
+    }
+  },
+  "CALCULATOR": {
+    "initial_deposit": "Initial deposit",
+    "interest": "Interest",
+    "term": "Term",
+    "calculate": "Calculate"
   }
 }

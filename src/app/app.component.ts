@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '../environments/environment';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'fd-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
     public el: ElementRef,
-    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    private metaService: Meta
   ) {
     const analyticsEnabled = environment.enableGoogleAnalytics;
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -28,7 +30,7 @@ export class AppComponent implements OnInit {
     this.translate.setDefaultLang('ua');
   }
   ngOnInit() {
-    console.log(this.translate.currentLang);
+    this.metaService.updateTag({ name: 'robots', content: 'noindex, follow' });
   }
 
   private appendGtmCode() {

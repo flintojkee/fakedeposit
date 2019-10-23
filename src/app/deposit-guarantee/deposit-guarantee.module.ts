@@ -11,18 +11,6 @@ import { SharedModule } from '@fd/shared';
 
 const routes: Routes = [
   {
-    path: 'fund-law',
-    component: FundLawComponent,
-    resolve: { data: PageResolver },
-    data: { page: 'fund-law' }
-  },
-  {
-    path: 'application-to-fund',
-    component: ApplicationToFundComponent,
-    resolve: { data: PageResolver },
-    data: { page: 'application-to-fund' }
-  },
-  {
     path: '',
     component: DepositGuaranteeComponent,
     resolve: { data: PageResolver },

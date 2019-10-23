@@ -16,16 +16,16 @@
             {{ currency }}
           </div>
           <div class="calculator__form-currency-label fw">
-            Початковий внесок
+            {{ 'CALCULATOR.initial_deposit' | translate }}
           </div>
         </div>
         <fd-input
           [fontSize]="'26'"
           [control]="interest"
-          [label]="'Відсоток'"
+          [label]="'CALCULATOR.interest' | translate"
           type="number"
         ></fd-input>
-        <fd-input [fontSize]="'26'" [control]="term" [label]="'Термін'" type="number"></fd-input>
+        <fd-input [fontSize]="'26'" [control]="term" [label]="'CALCULATOR.term' | translate" type="number"></fd-input>
       </form>
       <fd-button
         angulartics2On="click"
@@ -34,7 +34,7 @@
         (clicked)="calculate()"
         [type]="'default'"
         [color]="'primary'"
-        >Порахувати</fd-button
+        > {{ 'CALCULATOR.calculate' | translate }}</fd-button
       >
       <p *ngIf="result">Результат: {{ result | number: '1.2-2' }}</p>
     </div>

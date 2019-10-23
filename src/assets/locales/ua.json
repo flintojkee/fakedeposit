@@ -6,5 +6,43 @@
     "application-to-fund": "Заява до фонду гарантування вкладів",
     "deposit-bank-rates": "Ставки в банках України",
     "deposit-tax": "Податок на депозит"
+  },
+  "META": {
+    "calculator":  {
+      "title": "Fakedeposit | Депозитний калькулятор",
+      "description": "Калькулятор депозитів допоможе обчислити суму вкладу до моменту погашення та отримані відсотки по депозиту для будь-якого строкового вкладу в банках.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/calculator/"
+    },
+    "deposit-guarantee":  {
+      "title": "Fakedeposit | Фонд гарантування вкладів",
+      "description": "Фонд гарантування вкладів фізичних осіб — це установа, що забезпечує повернення депозитів у разі ліквідації банку. Розмір компенсації залежить від сумарного вкладу в одному банку.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/deposit-guarantee/"
+    },
+    "fund-law":  {
+      "title": "Fakedeposit | Закон про фонд гарантування вкладів",
+      "description": "Закон України про систему гарантування вкладів фізичних осіб – основний інструмент для захисту вкладників.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/deposit-guarantee/fund-law/"
+    },
+    "application-to-fund":  {
+      "title": "Fakedeposit | Заява до фонду гарантування вкладів",
+      "description": "Щоб вклaдники отримали виплати, потрібно відправити заяву до Фонду гарантувaння вклaдів фізичних осіб. Написання заяви відбувається за офіційно встановленим зразком.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/deposit-guarantee/application-to-fund/"
+    },
+    "deposit-bank-rates":  {
+      "title": "Fakedeposit | Ставки в банках України",
+      "description": "Найвигідніші депозитні вклади в банках України. Порівняйте депозитні ставки банків та оберіть найкращу пропозицію.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/deposit-bank-rates/"
+    },
+    "deposit-tax":  {
+      "title": "Fakedeposit | Податок на депозит",
+      "description": "Доходи від депозитів прирівнюються до всіх інших доходів, тому оподатковуються. Податок на прибуток розраховується в залежності від виплачених відсотків.",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/deposit-tax/"
+    }
+  },
+  "CALCULATOR": {
+    "initial_deposit": "Початковий внесок",
+    "interest": "Відсоток",
+    "term": "Термін",
+    "calculate": "Порахувати"
   }
 }

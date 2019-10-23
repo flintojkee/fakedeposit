@@ -16,21 +16,27 @@ import * as fs from 'fs-extra';
 
 // Add routes manually that you need rendered
 const ROUTES = [
-  '/en',
-  '/ru',
-  '/ua',
   'en/calculator',
   'ru/calculator',
   'ua/calculator',
   'en/deposit-guarantee',
   'ru/deposit-guarantee',
   'ua/deposit-guarantee',
+  'en/deposit-guarantee/application-to-fund',
+  'ru/deposit-guarantee/application-to-fund',
+  'ua/deposit-guarantee/application-to-fund',
+  'en/deposit-guarantee/fund-law',
+  'ru/deposit-guarantee/fund-law',
+  'ua/deposit-guarantee/fund-law',
   'en/deposit-tax',
   'ru/deposit-tax',
   'ua/deposit-tax',
   'en/deposit-bank-rates',
   'ru/deposit-bank-rates',
-  'ua/deposit-bank-rates'
+  'ua/deposit-bank-rates',
+  'en/home',
+  'ru/home',
+  'ua/home'
 ];
 
 const APP_NAME = 'fakedeposit';

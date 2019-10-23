@@ -15,27 +15,45 @@ import { Location } from '@angular/common';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core';
 import { Angulartics2Module } from 'angulartics2';
+import { FundLawComponent } from './deposit-guarantee/pages/fund-law/fund-law.component';
+import { PageResolver } from './core/services';
+import { DepositGuaranteeModule } from './deposit-guarantee/deposit-guarantee.module';
+import { ApplicationToFundComponent } from './deposit-guarantee/pages/application-to-fund/application-to-fund.component';
+import { ServerTransferStateModule } from '@angular/platform-server';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'home/.' },
   {
-    path: 'calculator',
+    path: 'calculator/.',
     loadChildren: () => import('./calculator/calculator.module').then((m) => m.CalculatorModule)
   },
   {
-    path: 'deposit-guarantee',
+    path: 'deposit-guarantee/.',
     loadChildren: () =>
       import('./deposit-guarantee/deposit-guarantee.module').then((m) => m.DepositGuaranteeModule)
   },
   {
-    path: 'deposit-tax',
+    path: 'deposit-tax/.',
     loadChildren: () => import('./deposit-tax/deposit-tax.module').then((m) => m.DepositTaxModule)
   },
   {
-    path: 'deposit-bank-rates',
+    path: 'deposit-guarantee/fund-law/.',
+    component: FundLawComponent,
+    resolve: { data: PageResolver },
+    data: { page: 'fund-law' }
+  },
+  {
+    path: 'deposit-guarantee/application-to-fund/.',
+    component: ApplicationToFundComponent,
+    resolve: { data: PageResolver },
+    data: { page: 'application-to-fund' }
+  },
+  {
+    path: 'deposit-bank-rates/.',
     loadChildren: () =>
       import('./deposit-bank-rates/deposit-bank-rates.module').then((m) => m.DepositBankRatesModule)
   },
+
   {
     path: 'about-us',
     loadChildren: () => import('./about-us/about-us.module').then((m) => m.AboutUsModule)
@@ -45,7 +63,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./about-project/about-project.module').then((m) => m.AboutProjectModule)
   },
-  { path: 'home', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
+  { path: 'home/.', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -56,13 +74,15 @@ export function createTranslateLoaderRouter(
   location: Location,
   settings: LocalizeRouterSettings
 ) {
-  return new ManualParserLoader(translate, location, settings, ['en', 'ru', 'ua'], 'ROUTES.');
+  return new ManualParserLoader(translate, location, settings, ['ua', 'ru', 'en'], 'ROUTES.');
 }
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'fakedeposit' }),
     HttpClientModule,
+    BrowserTransferStateModule,
+    DepositGuaranteeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -84,3 +104,19 @@ export function createTranslateLoaderRouter(
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+const __stripTrailingSlash = (Location as any).stripTrailingSlash;
+Location.stripTrailingSlash = function(url) {
+  if (url.endsWith('/')) {
+    url = url;
+  } else {
+    url = url + '/';
+  }
+  const queryString$ = url.match(/([^?]*)?(.*)/);
+  if (queryString$[2].length > 0) {
+    return /[^\/]\/$/.test(queryString$[1])
+      ? queryString$[1] + '.' + queryString$[2]
+      : __stripTrailingSlash(url);
+  }
+  return /[^\/]\/$/.test(url) ? url + '.' : __stripTrailingSlash(url);
+};

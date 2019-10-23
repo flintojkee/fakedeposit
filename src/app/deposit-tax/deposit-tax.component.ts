@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil, map } from 'rxjs/operators';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'fd-deposit-tax',
@@ -12,8 +14,24 @@ import { Meta } from '@angular/platform-browser';
 export class DepositTaxComponent implements OnInit, OnDestroy {
   pageData: any;
   destroyed$ = new Subject();
+  pageName = 'deposit-tax';
+  constructor(
+    private route: ActivatedRoute,
+    public metaService: Meta,
+    public titleService: Title,
+    public translateService: TranslateService,
+    @Inject(DOCUMENT) public dom
+  ) {
+    const title = translateService.instant(`META.${this.pageName}.title`);
+    const description = translateService.instant(`META.${this.pageName}.description`);
+    const canonicalLink = translateService.instant(`META.${this.pageName}.canonical_link`);
+    titleService.setTitle(title);
+    metaService.updateTag({ name: 'robots', content: 'all' });
+    metaService.updateTag({ name: 'description', content: description });
+    metaService.updateTag({ name: 'og:title', content: title });
+    metaService.updateTag({ name: 'og:description', content: description });
+  }
 
-  constructor(private route: ActivatedRoute, private metaService: Meta) {}
 
   ngOnInit() {
     this.metaService.addTag({name: 'robots', content: 'all'});

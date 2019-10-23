@@ -5,6 +5,9 @@
   margin-bottom: 50px;
   &__text {
     margin: 0;
+    @media screen and (max-width: $xs) {
+      text-align: center;
+    }
     &-wrapper {
       width: 75%;
       padding: 50px 0;

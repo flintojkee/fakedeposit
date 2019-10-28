@@ -16,6 +16,9 @@ import * as fs from 'fs-extra';
 
 // Add routes manually that you need rendered
 const ROUTES = [
+  'ua/',
+  'ru/',
+  'en/',
   'en/calculator',
   'ru/calculator',
   'ua/calculator',
@@ -33,10 +36,7 @@ const ROUTES = [
   'ua/deposit-tax',
   'en/deposit-bank-rates',
   'ru/deposit-bank-rates',
-  'ua/deposit-bank-rates',
-  'en/home',
-  'ru/home',
-  'ua/home'
+  'ua/deposit-bank-rates'
 ];
 
 const APP_NAME = 'fakedeposit';

@@ -8,39 +8,39 @@
     "deposit-tax": "Налог на депозит"
   },
   "META": {
-    "calculator":  {
+    "calculator": {
       "title": "Fakedeposit | Депозитный калькулятор",
       "description": "Калькулятор депозитов поможет рассчитать сумму вклада до момента погашения и полученные проценты по депозиту для любого срочного вклада в банках.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/calculator/"
     },
-    "deposit-guarantee":  {
+    "deposit-guarantee": {
       "title": "Fakedeposit | Фонд гарантирования вкладов",
       "description": "Фонд гарантирования вкладов физических лиц - учреждение, которое обеспечивает возвращение депозитов в случае ликвидации банка. Сумма компенсации зависит от суммарного вклада в одном банке.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/deposit-guarantee/"
     },
-    "fund-law":  {
+    "fund-law": {
       "title": "Fakedeposit | Закон про фонд гарантирования вкладов",
       "description": "Закон Украины о системе гарантирования вкладов физических лиц - основной инструмент для защиты вкладчиков.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/deposit-guarantee/fund-law/"
     },
-    "application-to-fund":  {
+    "application-to-fund": {
       "title": "Fakedeposit | Заява в фонд гарантирования вкладов",
       "description": "Чтобы вкладчики получили выплаты, необходимо отправить заявление в Фонд гарантирования вложений физических лиц. Написание заявления происходит согласно официально установленному образцу.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/deposit-guarantee/application-to-fund/"
     },
-    "deposit-bank-rates":  {
+    "deposit-bank-rates": {
       "title": "Fakedeposit | Ставки в банках Украины",
       "description": "Самые выгодные депозитные вклады в банках Украины. Сравните депозитные ставки банков и выберите лучшее предложение.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/deposit-bank-rates/"
     },
-    "deposit-tax":  {
+    "deposit-tax": {
       "title": "Fakedeposit | Налог на депозит",
       "description": "Доходы от депозитов приравниваются ко всем другим доходам, поэтому облагаются налогом. Налог на прибыль рассчитывается в зависимости от выплаченных процентов.",
       "canonical_link": "https://www.fakedeposit.com.ua/ru/deposit-tax/"
     }
   },
   "CALCULATOR": {
-    "initial_deposit": "Начальный звнос",
+    "initial_deposit": "Начальный взнос",
     "interest": "Процент",
     "term": "Срок",
     "calculate": "Посчитать"

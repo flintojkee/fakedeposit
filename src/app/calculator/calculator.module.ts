@@ -6,6 +6,7 @@ import { CalculatorComponent } from './pages/calculator.component';
 import { SharedModule } from '@fd/shared';
 import { LocalizeRouterModule } from 'localize-router';
 import { TranslateModule } from '@ngx-translate/core';
+import { Angulartics2Module } from 'angulartics2';
 
 @NgModule({
   declarations: [CalculatorComponent],
@@ -14,7 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CalculatorRoutingModule,
     SharedModule,
     LocalizeRouterModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    Angulartics2Module
   ],
   providers: []
 })

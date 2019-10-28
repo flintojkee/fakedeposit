@@ -16,6 +16,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     RouterModule.forChild(routes),
     LocalizeRouterModule,
     TranslateModule.forChild()
-  ]
+  ],
+  exports: [HomeComponent]
 })
 export class HomeModule {}

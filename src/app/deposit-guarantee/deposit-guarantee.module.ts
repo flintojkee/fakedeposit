@@ -9,16 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LocalizeRouterModule } from 'localize-router';
 import { SharedModule } from '@fd/shared';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: DepositGuaranteeComponent,
-    resolve: { data: PageResolver },
-    data: { page: 'deposit-guarantee' }
-  },
-
-];
-
 @NgModule({
   declarations: [DepositGuaranteeComponent, FundLawComponent, ApplicationToFundComponent],
   imports: [
@@ -26,8 +16,7 @@ const routes: Routes = [
     LocalizeRouterModule,
     SharedModule,
     TranslateModule.forChild(),
-    LocalizeRouterModule.forChild(routes),
-    RouterModule.forChild(routes)
+    RouterModule
   ]
 })
 export class DepositGuaranteeModule {}

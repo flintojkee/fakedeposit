@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil, map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -21,7 +21,6 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
     public metaService: Meta,
     public titleService: Title,
     public translateService: TranslateService,
-    @Inject(DOCUMENT) public dom
   ) {
     const title = translateService.instant(`META.${this.pageName}.title`);
     const description = translateService.instant(`META.${this.pageName}.description`);

@@ -26,9 +26,9 @@
         font-weight: bold;
         font-size: 12px;
         letter-spacing: 0.8px;
-        padding: 20px 10px;
+        margin: 20px 10px;
         @media screen and (max-width: $xs) {
-          padding: 5px 10px;
+          margin: 5px 10px;
         }
         &:not(:last-child) {
           margin-right: 10px;
@@ -45,6 +45,8 @@
 
 .dropdown {
   position: relative;
+  display: inline-block;
+  padding: 5px 0;
   &:hover .dropdown__content {
     display: flex;
   }
@@ -53,7 +55,7 @@
     background-color: white;
     flex-direction: column;
     position: absolute;
-    top: 50px;
+    top: 25px;
     right: 0;
     padding: 10px;
     border: 1px solid $medium;

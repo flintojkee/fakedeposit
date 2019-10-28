@@ -1,8 +1,13 @@
 <header class="header">
   <div class="container">
     <div class="header__body fw">
-      <a [routerLink]="['/home/.' | localize]" routerLinkActive="router-link-active" href="/home/">
-        <img class="header__logo" title="fake deposit logo" src="assets/images/fakedeposit-logo-alt.svg" alt="fake deposit logo" />
+      <a [routerLink]="['/.' | localize]" routerLinkActive="router-link-active" href="/">
+        <img
+          class="header__logo"
+          title="fake deposit logo"
+          src="assets/images/fakedeposit-logo-alt.svg"
+          alt="fake deposit logo"
+        />
       </a>
 
       <nav class="header__nav">
@@ -15,26 +20,28 @@
               >{{ 'HEADER.calculator' | translate }}</a
             >
           </li>
-          <li class="dropdown">
-            <a
-              [routerLink]="['/deposit-guarantee/.' | localize]"
-              routerLinkActive="router-link-active"
-              href="/deposit-guarantee/"
-              >{{ 'HEADER.deposit-guarantee' | translate }}
-            </a>
-            <div class="dropdown__content">
+          <li>
+            <div class="dropdown">
               <a
-                [routerLink]="['/deposit-guarantee/application-to-fund/.' | localize]"
+                [routerLink]="['/deposit-guarantee/.' | localize]"
                 routerLinkActive="router-link-active"
-                href="/application-to-fund/"
-                >{{ 'HEADER.application-to-fund' | translate }}</a
-              >
-              <a
-                [routerLink]="['/deposit-guarantee/fund-law/.' | localize]"
-                routerLinkActive="router-link-active"
-                href="'/fund-law/"
-                >{{ 'HEADER.fund-law' | translate }}</a
-              >
+                href="/deposit-guarantee/"
+                >{{ 'HEADER.deposit-guarantee' | translate }}
+              </a>
+              <div class="dropdown__content">
+                <a
+                  [routerLink]="['/deposit-guarantee/application-to-fund/.' | localize]"
+                  routerLinkActive="router-link-active"
+                  href="/application-to-fund/"
+                  >{{ 'HEADER.application-to-fund' | translate }}</a
+                >
+                <a
+                  [routerLink]="['/deposit-guarantee/fund-law/.' | localize]"
+                  routerLinkActive="router-link-active"
+                  href="'/fund-law/"
+                  >{{ 'HEADER.fund-law' | translate }}</a
+                >
+              </div>
             </div>
           </li>
           <li>
@@ -52,6 +59,23 @@
               href="/deposit-bank-rates/"
               >{{ 'HEADER.deposit-bank-rates' | translate }}</a
             >
+          </li>
+          <li>
+            <div class="dropdown">
+              <a
+                [routerLink]="[currentUrl]"
+                routerLinkActive="router-link-active"
+                >{{ currentLang }}
+              </a>
+              <div class="dropdown__content">
+                <a
+                  [routerLink]="[lang.url]"
+                  routerLinkActive="router-link-active"
+                  *ngFor="let lang of langs"
+                  >{{ lang.label }}</a
+                >
+              </div>
+            </div>
           </li>
         </ul>
       </nav>

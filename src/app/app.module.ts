@@ -18,19 +18,22 @@ import { Angulartics2Module } from 'angulartics2';
 import { FundLawComponent } from './deposit-guarantee/pages/fund-law/fund-law.component';
 import { PageResolver } from './core/services';
 import { DepositGuaranteeModule } from './deposit-guarantee/deposit-guarantee.module';
+import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
+import { DepositGuaranteeComponent } from './deposit-guarantee/pages/deposit-guarantee/deposit-guarantee.component';
 import { ApplicationToFundComponent } from './deposit-guarantee/pages/application-to-fund/application-to-fund.component';
-import { ServerTransferStateModule } from '@angular/platform-server';
-
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home/.' },
+  { path: '', redirectTo: '/.', pathMatch: 'full' },
+  { path: '.', component: HomeComponent },
   {
     path: 'calculator/.',
     loadChildren: () => import('./calculator/calculator.module').then((m) => m.CalculatorModule)
   },
   {
     path: 'deposit-guarantee/.',
-    loadChildren: () =>
-      import('./deposit-guarantee/deposit-guarantee.module').then((m) => m.DepositGuaranteeModule)
+    component: DepositGuaranteeComponent,
+    resolve: { data: PageResolver },
+    data: { page: 'deposit-guarantee' }
   },
   {
     path: 'deposit-tax/.',
@@ -63,7 +66,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./about-project/about-project.module').then((m) => m.AboutProjectModule)
   },
-  { path: 'home/.', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
+  // { path: 'home/.', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
 ];
 
 export function createTranslateLoader(http: HttpClient) {
@@ -82,7 +85,6 @@ export function createTranslateLoaderRouter(
     BrowserModule.withServerTransition({ appId: 'fakedeposit' }),
     HttpClientModule,
     BrowserTransferStateModule,
-    DepositGuaranteeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -99,7 +101,9 @@ export function createTranslateLoaderRouter(
     }),
     RouterModule.forRoot(routes),
     Angulartics2Module.forRoot(),
-    CoreModule
+    CoreModule,
+    HomeModule,
+    DepositGuaranteeModule,
   ],
   bootstrap: [AppComponent]
 })

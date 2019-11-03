@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'fd-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private metaService: Meta) { }
 
   ngOnInit() {
+    this.metaService.updateTag({ name: 'robots', content: 'all' });
   }
 
 }

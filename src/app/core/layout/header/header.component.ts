@@ -11,7 +11,11 @@ import { Subject } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentLang: string;
-  allLangs = [{ label: 'ua', url: '' }, { label: 'en', url: '' }, { label: 'ru', url: '' }];
+  allLangs = [
+    { label: 'ua', url: '/ua/.' },
+    { label: 'en', url: '/en/.' },
+    { label: 'ru', url: '/ru/.' }
+  ];
   langs = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
   currentUrl: string;
@@ -22,14 +26,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.pipe(takeUntil(this.destroy$)).subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentLang = this.translateService.currentLang;
-        console.log(this.currentLang);
         this.currentUrl = event.url;
-        console.log(this.currentUrl);
-        this.allLangs = this.allLangs.map((lang) => ({
-          url: this.currentUrl.replace(this.currentLang, lang.label),
-          label: lang.label
-        }));
-        console.log(this.allLangs);
+        if (this.currentUrl === '/') {
+          this.allLangs = [
+            { label: 'ua', url: '/ua/.' },
+            { label: 'en', url: '/en/.' },
+            { label: 'ru', url: '/ru/.' }
+          ];
+        } else {
+          this.allLangs = this.allLangs.map((lang) => ({
+            url: this.currentUrl.replace(this.currentLang, lang.label),
+            label: lang.label
+          }));
+        }
+
         this.langs = this.allLangs.filter((lang) => lang.label !== this.currentLang);
       }
     });

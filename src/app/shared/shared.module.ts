@@ -10,14 +10,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     InputsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule
-  ],
-  exports: [
-    InputsModule,
-    FormsModule,
-    ReactiveFormsModule,
     NgxChartsModule,
-    PageHeaderComponent
-  ]
+  ],
+  exports: [InputsModule, FormsModule, ReactiveFormsModule, NgxChartsModule, PageHeaderComponent]
 })
 export class SharedModule {}

@@ -13,6 +13,7 @@ export class ButtonComponent implements OnInit {
   @Input() iconPos: 'left' | 'right' = 'left';
   @Input() icon: string;
   @Input() isLoading = false;
+  @Input() activated = false;
   @Output() clicked: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

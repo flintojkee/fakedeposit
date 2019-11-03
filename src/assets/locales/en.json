@@ -4,7 +4,7 @@
     "deposit-guarantee": "Deposit guarantee",
     "fund-law": "Law on Deposit Guarantee Fund",
     "application-to-fund": "Application for Deposit Guarantee Fund",
-    "deposit-bank-rates": "Depostit bank rates",
+    "deposit-bank-rates": "Deposit bank rates",
     "deposit-tax": "Deposit tax"
   },
   "META": {
@@ -40,9 +40,16 @@
     }
   },
   "CALCULATOR": {
-    "initial_deposit": "Initial deposit",
-    "interest": "Interest",
+    "initial_deposit": "Deposit",
+    "interest": "Interest rate",
     "term": "Term",
-    "calculate": "Calculate"
+    "calculate": "Calculate",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "yearly": "Yearly"
+  },
+  "HOME": {
+    "header": "Save your deposit from getting fake income",
+    "calculate": "Calculate deposit"
   }
 }

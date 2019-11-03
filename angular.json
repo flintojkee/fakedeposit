@@ -26,7 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/.htaccess"
+              "src/sitemap.xml"
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
@@ -92,7 +92,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "sitemap.xml"
             ],
             "styles": [
               "src/styles.scss"

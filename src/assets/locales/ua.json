@@ -40,9 +40,19 @@
     }
   },
   "CALCULATOR": {
-    "initial_deposit": "Початковий внесок",
-    "interest": "Відсоток",
+    "initial_deposit": "Внесок",
+    "interest": "Відсоток річних",
     "term": "Термін",
-    "calculate": "Порахувати"
+    "calculate": "Порахувати",
+    "monthly": "Місяць",
+    "quarterly": "Квартал",
+    "yearly": "Рік",
+    "contribution": "Поповнення внеску за період",
+    "capitalization": "Капіталізація за період",
+    "none": "Немає"
+  },
+  "HOME": {
+    "header": "Вбережи свій депозит, щоб не отримати фейковий дохід",
+    "calculate": "Обрахувати депозит"
   }
 }

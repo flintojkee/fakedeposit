@@ -6,7 +6,8 @@
 </ng-template>
 <button
   (click)="clicked.emit($event)"
-  class="btn btn--{{ type }} btn--{{ color }}"
+  class="btn btn--{{ type }} btn--{{ color }} "
+  [class.btn--activated]="activated"
   type="button"
   [disabled]="isDisabled"
 >

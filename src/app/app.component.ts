@@ -1,23 +1,28 @@
-import { Component, Inject, PLATFORM_ID, ElementRef, OnInit } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '../environments/environment';
 import { Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'fd-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   isBrowser: boolean;
+  destroy$: Subject<boolean> = new Subject<boolean>();
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
     public el: ElementRef,
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-    private metaService: Meta
+    private metaService: Meta,
+    private router: Router
   ) {
     const analyticsEnabled = environment.enableGoogleAnalytics;
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -30,7 +35,16 @@ export class AppComponent implements OnInit {
     this.translate.setDefaultLang('ua');
   }
   ngOnInit() {
-    this.metaService.updateTag({ name: 'robots', content: 'noindex, follow' });
+    this.metaService.updateTag({ name: 'robots', content: 'all' });
+    this.updateLanguage();
+    this.router.events.pipe(takeUntil(this.destroy$)).subscribe((res) => {
+      this.updateLanguage();
+    });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
   private appendGtmCode() {
@@ -88,6 +102,15 @@ export class AppComponent implements OnInit {
     } catch (err) {
       console.error('Error appending google analytics');
       console.error(err);
+    }
+  }
+  updateLanguage(): void {
+    if (this.isBrowser) {
+      const lang = document.createAttribute('lang');
+
+      lang.value = this.translate.currentLang === 'ua' ? 'uk' : this.translate.currentLang;
+
+      this.el.nativeElement.parentElement.parentElement.attributes.setNamedItem(lang);
     }
   }
 }

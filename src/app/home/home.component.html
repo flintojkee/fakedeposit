@@ -2,14 +2,14 @@
   <div class="home fw">
     <div class="home__header fw">
       <h1>
-        Вбережи свій депозит, щоб не отримати фейковий дохід
+       {{'HOME.header' | translate}}
       </h1>
       <a
         href="/calculator"
         [routerLink]="['/calculator/.' | localize]"
         routerLinkActive="router-link-active"
       >
-        <fd-button [type]="'default'" [color]="'primary'">Обрахувати депозит</fd-button>
+        <fd-button [type]="'default'" [color]="'primary'"> {{'HOME.calculate' | translate}}</fd-button>
       </a>
     </div>
     <div class="home__image fw">

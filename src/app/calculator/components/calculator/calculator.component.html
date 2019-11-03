@@ -1,0 +1,118 @@
+<div class="calculator__form-wrapper">
+  <form [formGroup]="calculatorForm" class="calculator__form">
+    <div class="calculator__form-currency fw">
+      <div class="calculator__form-currency-input">
+        <fd-input
+          [placeholder]="'0'"
+          [fontSize]="'42'"
+          [control]="initial"
+          type="number"
+        ></fd-input>
+      </div>
+      <div class="calculator__form-currency-logo" (click)="changeCurrency()">
+        {{ currency }}
+      </div>
+      <div class="calculator__form-currency-label fw">
+        <strong>{{ 'CALCULATOR.initial_deposit' | translate }}</strong>
+      </div>
+    </div>
+    <fd-input
+      [fontSize]="'26'"
+      [control]="interest"
+      [label]="'CALCULATOR.interest' | translate"
+      type="number"
+    ></fd-input>
+    <div>
+      <fd-input
+        [fontSize]="'26'"
+        [control]="term"
+        [label]="'CALCULATOR.term' | translate"
+        type="number"
+      ></fd-input>
+    </div>
+    <div class="timeframe-wrapper fw">
+      <strong>{{ 'CALCULATOR.contribution' | translate }}</strong>
+      <div class="fw">
+        <div class="col-4">
+          <fd-input [fontSize]="'26'" [control]="contribution" type="number"></fd-input>
+        </div>
+        <div class="timeframe col-6">
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setContributionTimeFrame(timeFrame.monthly)"
+              [activated]="contributionTimeFrame === timeFrame.monthly"
+            >
+              {{ 'CALCULATOR.monthly' | translate }}
+            </fd-button>
+          </div>
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setContributionTimeFrame(timeFrame.quarterly)"
+              [activated]="contributionTimeFrame === timeFrame.quarterly"
+            >
+              {{ 'CALCULATOR.quarterly' | translate }}
+            </fd-button>
+          </div>
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setContributionTimeFrame(timeFrame.yearly)"
+              [activated]="contributionTimeFrame === timeFrame.yearly"
+            >
+              {{ 'CALCULATOR.yearly' | translate }}
+            </fd-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeframe-wrapper fw">
+      <strong>{{ 'CALCULATOR.capitalization' | translate }}</strong>
+      <div class="fw">
+        <div class="timeframe col-12">
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setCapitalizationTimeFrame(timeFrame.none)"
+              [activated]="capitalizationTimeFrame === timeFrame.none"
+            >
+              {{ 'CALCULATOR.none' | translate }}
+            </fd-button>
+          </div>
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setCapitalizationTimeFrame(timeFrame.monthly)"
+              [activated]="capitalizationTimeFrame === timeFrame.monthly"
+            >
+              {{ 'CALCULATOR.monthly' | translate }}
+            </fd-button>
+          </div>
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setCapitalizationTimeFrame(timeFrame.quarterly)"
+              [activated]="capitalizationTimeFrame === timeFrame.quarterly"
+            >
+              {{ 'CALCULATOR.quarterly' | translate }}
+            </fd-button>
+          </div>
+          <div class="timeframe__frame">
+            <fd-button
+              (clicked)="setCapitalizationTimeFrame(timeFrame.yearly)"
+              [activated]="capitalizationTimeFrame === timeFrame.yearly"
+            >
+              {{ 'CALCULATOR.yearly' | translate }}
+            </fd-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <fd-button
+    angulartics2On="click"
+    angularticsAction="Calculate"
+    angularticsCategory="Calculator"
+    (clicked)="calculate()"
+    [type]="'default'"
+    [color]="'primary'"
+  >
+    {{ 'CALCULATOR.calculate' | translate }}</fd-button
+  >
+  <p *ngIf="result">Результат: {{ result.resultValue | number: '1.2-2' }}</p>
+</div>

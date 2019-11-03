@@ -1,0 +1,14 @@
+<div class="calculator-page">
+  <fd-page-header>{{ 'HEADER.calculator' | translate }}</fd-page-header>
+  <div class="container">
+    <div class="calculator-page__wrapper fw">
+      <div class="col-6">
+        <fd-calculator (calculatorResult)="setCalculatorResult($event)"></fd-calculator>
+      </div>
+      <div class="col-4">
+        <fd-result-chart *ngIf="chartResults" [results]="chartResults"></fd-result-chart>
+      </div>
+    </div>
+    <div [innerHTML]="pageData"></div>
+  </div>
+</div>

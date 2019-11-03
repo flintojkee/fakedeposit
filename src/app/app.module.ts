@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
 import { DepositGuaranteeComponent } from './deposit-guarantee/pages/deposit-guarantee/deposit-guarantee.component';
 import { ApplicationToFundComponent } from './deposit-guarantee/pages/application-to-fund/application-to-fund.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   { path: '', redirectTo: '/.', pathMatch: 'full' },
   { path: '.', component: HomeComponent },
@@ -83,6 +84,7 @@ export function createTranslateLoaderRouter(
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'fakedeposit' }),
+    BrowserAnimationsModule,
     HttpClientModule,
     BrowserTransferStateModule,
     TranslateModule.forRoot({

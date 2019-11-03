@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CalculatorComponent } from './pages/calculator.component';
 import { LocalizeRouterModule } from 'localize-router';
-import { TranslateModule } from '@ngx-translate/core';
 import { PageResolver } from '@fd/core/services';
+import { CalculatorPageComponent } from './pages/calculator-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CalculatorComponent,
+    component: CalculatorPageComponent,
     resolve: { data: PageResolver },
     data: { page: 'calculator' }
   }

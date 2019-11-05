@@ -5,31 +5,32 @@
   margin-bottom: 50px;
   &__text {
     margin: 0;
+    @media screen and (max-width: $md) {
+      font-size: 30px;
+    }
     @media screen and (max-width: $xs) {
       text-align: center;
     }
     &-wrapper {
       width: 75%;
       padding: 50px 0;
-      @media screen and (max-width: $md) {
-        width: 100%;
-      }
     }
   }
   &__logo {
-    @media screen and (max-width: $md) {
-      display: none;
-    }
     width: 25%;
     padding: 25px;
     background: #070f31;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: $xs) {
+      padding: 10px;
+    }
+    @media screen and (max-width: $md) {
+      margin-right: -25px;
+    }
     &-image {
       width: 100px;
       height: 100px;
-      border-radius: 50%;
-      background-color: #feaa30;
     }
   }
 }

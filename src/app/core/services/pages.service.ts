@@ -36,6 +36,8 @@ export class PagesService {
   };
   api = 'https://fakedeposit-cms.herokuapp.com/api/v2/pages/?type=';
   getPageData(page: string) {
+    console.log(this.translateService.currentLang);
+    console.log(page);
     return this.http
       .get<any>(
         `${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=_,text&slug=${this.pages[page].type}-${this.translateService.currentLang}`

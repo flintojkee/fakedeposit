@@ -3,7 +3,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-
+export interface Lang {
+  label: string;
+  url: string;
+}
 @Component({
   selector: 'fd-header',
   templateUrl: './header.component.html',
@@ -48,5 +51,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  setLang(lang: Lang) {
+    this.translateService
+      .use(lang.label)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((res) => {
+        console.log(res);
+        console.log(lang);
+        this.router.navigate([lang.url]);
+      });
   }
 }

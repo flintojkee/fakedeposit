@@ -15,7 +15,6 @@ export interface StackedBarChartData {
 export class ResultChartComponent implements OnInit {
   @Input() results: StackedBarChartData[];
   constructor() {}
-  legendTitle = 'Total savings breakdown:';
   // options
   showXAxis = true;
   showYAxis = true;

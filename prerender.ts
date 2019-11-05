@@ -7,12 +7,14 @@ import { join, resolve } from 'path';
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 import { enableProdMode } from '@angular/core';
-
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+import { NgxRequest, NgxResponce } from '@gorniv/ngx-universal';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import { renderModuleFactory } from '@angular/platform-server';
 
 import * as fs from 'fs-extra';
+import { environment } from './src/environments/environment';
 
 // Add routes manually that you need rendered
 const ROUTES = [
@@ -60,7 +62,29 @@ async function prerender() {
     const html = await renderModuleFactory(AppServerModuleNgFactory, {
       document: index,
       url: route,
-      extraProviders: [provideModuleMap(LAZY_MODULE_MAP)]
+      extraProviders: [
+        provideModuleMap(LAZY_MODULE_MAP),
+        {
+          provide: REQUEST,
+          useValue: { cookie: '', headers: {} }
+        },
+        {
+          provide: RESPONSE,
+          useValue: {}
+        },
+        {
+          provide: NgxRequest,
+          useValue: { cookie: '', headers: {} }
+        },
+        {
+          provide: NgxResponce,
+          useValue: {}
+        },
+        {
+          provide: 'ORIGIN_URL',
+          useValue: environment.host
+        }
+      ]
     });
 
     await fs.writeFile(join(pageDir, 'index.html'), html);

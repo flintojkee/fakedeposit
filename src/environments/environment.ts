@@ -7,7 +7,8 @@ export const environment = {
   locales: 'http://localhost:4200',
   enableGoogleAnalytics: false,
   googleAnalyticsKey: 'UA-149688512-1',
-  googleTagManagerKey: 'GTM-WD542V2'
+  googleTagManagerKey: 'GTM-WD542V2',
+  host: 'http://localhost:8080'
 };
 
 /*

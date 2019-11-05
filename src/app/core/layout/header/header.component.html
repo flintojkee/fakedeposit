@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <div class="header__body fw">
-      <a [routerLink]="['/.' | localize]" routerLinkActive="router-link-active" href="/">
+      <a [routerLink]="['/.' | localize]" href="/">
         <img
           class="header__logo"
           title="fake deposit logo"
@@ -16,6 +16,7 @@
             <a
               [routerLink]="['/calculator/.' | localize]"
               routerLinkActive="router-link-active"
+              class="header__link"
               href="/calculator/"
               >{{ 'HEADER.calculator' | translate }}</a
             >
@@ -25,6 +26,7 @@
               <a
                 [routerLink]="['/deposit-guarantee/.' | localize]"
                 routerLinkActive="router-link-active"
+                class="header__link"
                 href="/deposit-guarantee/"
                 >{{ 'HEADER.deposit-guarantee' | translate }}
               </a>
@@ -32,12 +34,14 @@
                 <a
                   [routerLink]="['/deposit-guarantee/application-to-fund/.' | localize]"
                   routerLinkActive="router-link-active"
+                  class="header__link"
                   href="/application-to-fund/"
                   >{{ 'HEADER.application-to-fund' | translate }}</a
                 >
                 <a
                   [routerLink]="['/deposit-guarantee/fund-law/.' | localize]"
                   routerLinkActive="router-link-active"
+                  class="header__link"
                   href="'/fund-law/"
                   >{{ 'HEADER.fund-law' | translate }}</a
                 >
@@ -48,6 +52,7 @@
             <a
               [routerLink]="['/deposit-tax/.' | localize]"
               routerLinkActive="router-link-active"
+              class="header__link"
               href="/deposit-tax/"
               >{{ 'HEADER.deposit-tax' | translate }}</a
             >
@@ -56,6 +61,7 @@
             <a
               [routerLink]="['/deposit-bank-rates/.' | localize]"
               routerLinkActive="router-link-active"
+              class="header__link"
               href="/deposit-bank-rates/"
               >{{ 'HEADER.deposit-bank-rates' | translate }}</a
             >
@@ -64,14 +70,14 @@
             <div class="dropdown">
               <a
                 [routerLink]="[currentUrl]"
-                routerLinkActive="router-link-active"
+                class="header__link"
                 >{{ currentLang }}
               </a>
               <div class="dropdown__content">
                 <a
-                  [routerLink]="[lang.url]"
-                  routerLinkActive="router-link-active"
+                  class="header__link"
                   *ngFor="let lang of langs"
+                  (click)=setLang(lang)
                   >{{ lang.label }}</a
                 >
               </div>

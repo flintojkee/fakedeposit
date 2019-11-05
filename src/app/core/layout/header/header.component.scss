@@ -6,6 +6,12 @@
   &__logo {
     height: 50px;
   }
+  &__link {
+    color: $primary;
+    &:hover {
+      color: #feaa30
+    }
+  }
   &__body {
     align-items: center;
     @media screen and (max-width: $xs) {
@@ -33,16 +39,13 @@
         &:not(:last-child) {
           margin-right: 10px;
         }
-        a {
-          &:hover {
-            opacity: 0.5;
-          }
-        }
       }
     }
   }
 }
-
+.router-link-active {
+  color: #feaa30;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -64,9 +67,6 @@
       display: flex;
     }
     a {
-      &:hover {
-        opacity: 0.5;
-      }
       &:not(:last-child) {
         margin-bottom: 5px;
       }

@@ -1,5 +1,5 @@
-<fd-page-header>{{ 'HEADER.deposit-guarantee' | translate }}</fd-page-header>
+<fd-page-header [pageName]="pageName">{{ 'HEADER.deposit-guarantee' | translate }}</fd-page-header>
 <div class="container">
-  <div [innerHTML]="pageData"></div>
+  <div class="text-box" [innerHTML]="pageData"></div>
 </div>
 <router-outlet></router-outlet>

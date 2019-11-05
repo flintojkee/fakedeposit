@@ -59,15 +59,15 @@ export class CalculatorPageComponent implements OnInit, OnDestroy {
         name: '',
         series: [
           {
-            name: 'Initial deposit',
+            name: this.translateService.instant(`CALCULATOR.initial-deposit`), // 'Initial deposit',
             value: result.initialValue
           },
           {
-            name: 'Total contributions',
+            name: this.translateService.instant(`CALCULATOR.total-contributions`),
             value: result.contributionValue
           },
           {
-            name: 'Interest earned',
+            name: this.translateService.instant(`CALCULATOR.interest-earned`),
             value: result.interestValue
           }
         ]

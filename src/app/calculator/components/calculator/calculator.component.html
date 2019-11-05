@@ -1,6 +1,9 @@
 <div class="calculator__form-wrapper">
   <form [formGroup]="calculatorForm" class="calculator__form">
     <div class="calculator__form-currency fw">
+      <div class="calculator__form-currency-label fw">
+        <strong>{{ 'CALCULATOR.initial_deposit' | translate }}</strong>
+      </div>
       <div class="calculator__form-currency-input">
         <fd-input
           [placeholder]="'0'"
@@ -8,12 +11,9 @@
           [control]="initial"
           type="number"
         ></fd-input>
-      </div>
-      <div class="calculator__form-currency-logo" (click)="changeCurrency()">
-        {{ currency }}
-      </div>
-      <div class="calculator__form-currency-label fw">
-        <strong>{{ 'CALCULATOR.initial_deposit' | translate }}</strong>
+        <div class="calculator__form-currency-logo" (click)="changeCurrency()">
+          {{ currency }}
+        </div>
       </div>
     </div>
     <fd-input
@@ -33,7 +33,7 @@
     <div class="timeframe-wrapper fw">
       <strong>{{ 'CALCULATOR.contribution' | translate }}</strong>
       <div class="fw">
-        <div class="col-4">
+        <div class="col-4 xs-col-5">
           <fd-input [fontSize]="'26'" [control]="contribution" type="number"></fd-input>
         </div>
         <div class="timeframe col-6">
@@ -104,15 +104,18 @@
       </div>
     </div>
   </form>
-  <fd-button
-    angulartics2On="click"
-    angularticsAction="Calculate"
-    angularticsCategory="Calculator"
-    (clicked)="calculate()"
-    [type]="'default'"
-    [color]="'primary'"
-  >
-    {{ 'CALCULATOR.calculate' | translate }}</fd-button
-  >
-  <p *ngIf="result">Результат: {{ result.resultValue | number: '1.2-2' }}</p>
+  <div class="fw">
+      <fd-button
+      angulartics2On="click"
+      angularticsAction="Calculate"
+      angularticsCategory="Calculator"
+      (clicked)="calculate()"
+      [type]="'default'"
+      [color]="'primary'"
+    >
+      {{ 'CALCULATOR.calculate' | translate }}</fd-button
+    >
+    <strong class="result" *ngIf="result"> {{ 'CALCULATOR.result' | translate }}: {{ result.resultValue | number: '1.2-2' }}</strong>
+  </div>
+
 </div>

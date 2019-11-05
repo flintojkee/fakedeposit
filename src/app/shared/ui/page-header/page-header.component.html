@@ -5,7 +5,11 @@
         <h1 class="page-header__text"><ng-content></ng-content></h1>
       </div>
       <div class="page-header__logo fw">
-        <div class="page-header__logo-image"></div>
+        <img
+          class="page-header__logo-image"
+          [src]="'/assets/images/' + pageName + '.svg'"
+          [alt]="pageName"
+        />
       </div>
     </div>
   </div>

@@ -14,14 +14,18 @@
     }
     &-currency {
       justify-content: flex-start;
+      @media screen and (max-width: $xs) {
+        flex-direction: column;
+      }
       &-input {
-        width: 55%;
+        width: 100%;
+        display: flex;
       }
       &-logo {
         margin-left: -3px;
         margin-right: 10px;
         z-index: 1;
-        width: 15%;
+        min-width: 75px;
         max-height: 74px;
         text-align: center;
         color: #fff;
@@ -40,20 +44,27 @@
         }
       }
       &-label {
-        font-size: 28px;
-        width: 28%;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
+        font-size: 19.5px;
+        @media screen and (max-width: $xs) {
+          flex-direction: column;
+        }
       }
     }
   }
 }
+.result {
+  font-size: 26px;
+  line-height: 1.9;
+  color: $primary;
 
+}
 .timeframe {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  @media screen and (max-width: $xs) {
+    flex-direction: column;
+  }
   &__frame {
     width: 100%;
     height: 50px;

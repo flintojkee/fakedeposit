@@ -11,9 +11,9 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './deposit-guarantee.component.html',
   styleUrls: ['./deposit-guarantee.component.scss']
 })
-export class DepositGuaranteeComponent  implements OnInit, OnDestroy {
+export class DepositGuaranteeComponent implements OnInit, OnDestroy {
   pageData: any;
-  destroyed$ = new Subject();
+  destroy$: Subject<boolean> = new Subject<boolean>();
   pageName = 'deposit-guarantee';
   constructor(
     private route: ActivatedRoute,
@@ -22,21 +22,28 @@ export class DepositGuaranteeComponent  implements OnInit, OnDestroy {
     public translateService: TranslateService,
     @Inject(DOCUMENT) public dom
   ) {
-    const title = translateService.instant(`META.${this.pageName}.title`);
-    const description = translateService.instant(`META.${this.pageName}.description`);
-    const canonicalLink = translateService.instant(`META.${this.pageName}.canonical_link`);
-    titleService.setTitle(title);
+    this.translateService
+      .get(`META.${this.pageName}.title`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((title) => {
+        metaService.updateTag({ name: 'og:title', content: title });
+        titleService.setTitle(title);
+      });
+    this.translateService
+      .get(`META.${this.pageName}.description`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((description) => {
+        metaService.updateTag({ name: 'description', content: description });
+        metaService.updateTag({ name: 'og:description', content: description });
+      });
     metaService.updateTag({ name: 'robots', content: 'all' });
-    metaService.updateTag({ name: 'description', content: description });
-    metaService.updateTag({ name: 'og:title', content: title });
-    metaService.updateTag({ name: 'og:description', content: description });
   }
 
   ngOnInit() {
     this.route.data
       .pipe(
         map((res) => res.data),
-        takeUntil(this.destroyed$)
+        takeUntil(this.destroy$)
       )
       .subscribe((data) => {
         this.pageData = data;
@@ -44,7 +51,7 @@ export class DepositGuaranteeComponent  implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroyed$.next();
-    this.destroyed$.complete();
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }

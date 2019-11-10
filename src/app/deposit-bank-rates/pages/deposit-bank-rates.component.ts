@@ -6,7 +6,6 @@ import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
 
-
 @Component({
   selector: 'fd-deposit-bank-rates',
   templateUrl: './deposit-bank-rates.component.html',
@@ -14,29 +13,37 @@ import { DOCUMENT } from '@angular/common';
 })
 export class DepositBankRatesComponent implements OnInit, OnDestroy {
   pageData: any;
-  destroyed$ = new Subject();
+  destroy$ = new Subject();
   pageName = 'deposit-bank-rates';
   constructor(
     private route: ActivatedRoute,
     public metaService: Meta,
     public titleService: Title,
-    public translateService: TranslateService,
+    public translateService: TranslateService
   ) {
-    const title = translateService.instant(`META.${this.pageName}.title`);
-    const description = translateService.instant(`META.${this.pageName}.description`);
-    const canonicalLink = translateService.instant(`META.${this.pageName}.canonical_link`);
-    titleService.setTitle(title);
+    this.translateService
+      .get(`META.${this.pageName}.title`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((title) => {
+        metaService.updateTag({ name: 'og:title', content: title });
+        titleService.setTitle(title);
+      });
+    this.translateService
+      .get(`META.${this.pageName}.description`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((description) => {
+        metaService.updateTag({ name: 'description', content: description });
+        metaService.updateTag({ name: 'og:description', content: description });
+      });
+
     metaService.updateTag({ name: 'robots', content: 'all' });
-    metaService.updateTag({ name: 'description', content: description });
-    metaService.updateTag({ name: 'og:title', content: title });
-    metaService.updateTag({ name: 'og:description', content: description });
   }
 
   ngOnInit() {
     this.route.data
       .pipe(
         map((res) => res.data),
-        takeUntil(this.destroyed$)
+        takeUntil(this.destroy$)
       )
       .subscribe((data) => {
         this.pageData = data;
@@ -44,7 +51,7 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroyed$.next();
-    this.destroyed$.complete();
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }

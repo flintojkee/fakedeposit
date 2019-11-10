@@ -8,13 +8,18 @@
     "deposit-tax": "Deposit tax"
   },
   "META": {
+    "home": {
+      "title": "Fakedeposit | Deposit calculator | Deposit tax, income on deposit, rates at banks of Ukraine",
+      "description": "FakeDeposit is the deposit calculator that include income tax and capitalization",
+      "canonical_link": "https://www.fakedeposit.com.ua/ua/"
+    },
     "calculator":  {
       "title": "Deposit calculator | Fakedeposit",
       "description": "The deposit calculator will help you calculate the amount of the deposit up to the time of repayment and the interest received on the deposit for any term deposit with banks.",
       "canonical_link": "https://www.fakedeposit.com.ua/en/calculator/"
     },
     "deposit-guarantee":  {
-      "title": "Deposit guarantee",
+      "title": "Deposit guarantee | Fakedeposit",
       "description": "The Deposit Guarantee Fund is an institution that guarantees the repayment of deposits in the event of bank liquidation. The amount of compensation depends on the total deposit in one bank.",
       "canonical_link": "https://www.fakedeposit.com.ua/en/deposit-guarantee/"
     },
@@ -42,7 +47,7 @@
   "CALCULATOR": {
     "initial_deposit": "Deposit",
     "interest": "Interest rate",
-    "term": "Term",
+    "term": "Term (number of months)",
     "calculate": "Calculate",
     "monthly": "Month",
     "quarterly": "Quarter",

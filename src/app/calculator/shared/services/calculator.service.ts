@@ -7,7 +7,7 @@ import { requiredValidator } from '@fd/shared/ui';
 
 export enum TimeFrame {
   monthly = 1,
-  quarterly = 4,
+  quarterly = 3,
   yearly = 12,
   none = 0
 }

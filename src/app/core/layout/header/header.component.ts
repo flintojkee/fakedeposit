@@ -54,13 +54,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setLang(lang: Lang) {
+   // location.href = lang.url;
     this.translateService
       .use(lang.label)
       .pipe(takeUntil(this.destroy$))
       .subscribe((res) => {
-        console.log(res);
-        console.log(lang);
-        this.router.navigate([lang.url]);
+        // this.router.navigateByUrl(lang.url);
       });
   }
 }

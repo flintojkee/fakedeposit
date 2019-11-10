@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '../environments/environment';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -16,12 +16,15 @@ import { takeUntil } from 'rxjs/operators';
 export class AppComponent implements OnInit, OnDestroy {
   isBrowser: boolean;
   destroy$: Subject<boolean> = new Subject<boolean>();
+  pageName = 'home';
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
     public el: ElementRef,
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     private metaService: Meta,
+    private translateService: TranslateService,
+    private titleService: Title,
     private router: Router
   ) {
     const analyticsEnabled = environment.enableGoogleAnalytics;
@@ -32,9 +35,22 @@ export class AppComponent implements OnInit, OnDestroy {
       this.appendGtmNoscript();
       angulartics2GoogleAnalytics.startTracking();
     }
-    this.translate.setDefaultLang('ua');
   }
   ngOnInit() {
+    // this.translateService
+    //   .get(`META.${this.pageName}.title`)
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((title) => {
+    //     this.metaService.updateTag({ name: 'og:title', content: title });
+    //     this.titleService.setTitle(title);
+    //   });
+    // this.translateService
+    //   .get(`META.${this.pageName}.description`)
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((description) => {
+    //     this.metaService.updateTag({ name: 'description', content: description });
+    //     this.metaService.updateTag({ name: 'og:description', content: description });
+    //   });
     this.metaService.updateTag({ name: 'robots', content: 'all' });
     this.updateLanguage();
     this.router.events.pipe(takeUntil(this.destroy$)).subscribe((res) => {

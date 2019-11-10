@@ -62,29 +62,7 @@ async function prerender() {
     const html = await renderModuleFactory(AppServerModuleNgFactory, {
       document: index,
       url: route,
-      extraProviders: [
-        provideModuleMap(LAZY_MODULE_MAP),
-        {
-          provide: REQUEST,
-          useValue: { cookie: '', headers: {} }
-        },
-        {
-          provide: RESPONSE,
-          useValue: {}
-        },
-        {
-          provide: NgxRequest,
-          useValue: { cookie: '', headers: {} }
-        },
-        {
-          provide: NgxResponce,
-          useValue: {}
-        },
-        {
-          provide: 'ORIGIN_URL',
-          useValue: environment.host
-        }
-      ]
+      extraProviders: [provideModuleMap(LAZY_MODULE_MAP)]
     });
 
     await fs.writeFile(join(pageDir, 'index.html'), html);

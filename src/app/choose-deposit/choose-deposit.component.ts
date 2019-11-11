@@ -1,25 +1,25 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { takeUntil, map } from 'rxjs/operators';
 import { Meta, Title } from '@angular/platform-browser';
-import { TranslateService } from '@ngx-translate/core';
-import { DOCUMENT } from '@angular/common';
+import { map, takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'fd-deposit-tax',
-  templateUrl: './deposit-tax.component.html',
-  styleUrls: ['./deposit-tax.component.scss']
+  selector: 'fd-choose-deposit',
+  templateUrl: './choose-deposit.component.html',
+  styleUrls: ['./choose-deposit.component.scss']
 })
-export class DepositTaxComponent implements OnInit, OnDestroy {
+
+export class ChooseDepositComponent implements OnInit, OnDestroy {
+
   pageData: any;
   destroy$ = new Subject();
-  pageName = 'deposit-tax';
+  pageName = 'choose_deposit';
+
   constructor(
     private route: ActivatedRoute,
     private metaService: Meta,
-    private titleService: Title,
-    private translateService: TranslateService
+    private titleService: Title
   ) {
     metaService.updateTag({ name: 'robots', content: 'all' });
   }
@@ -46,4 +46,5 @@ export class DepositTaxComponent implements OnInit, OnDestroy {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
+
 }

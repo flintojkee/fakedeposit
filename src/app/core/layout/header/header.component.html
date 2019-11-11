@@ -18,7 +18,7 @@
               routerLinkActive="router-link-active"
               class="header__link"
               href="/calculator/"
-              >{{ 'HEADER.calculator' | translate }}</a
+              >{{ "HEADER.calculator" | translate }}</a
             >
           </li>
           <li>
@@ -28,22 +28,24 @@
                 routerLinkActive="router-link-active"
                 class="header__link"
                 href="/deposit-guarantee/"
-                >{{ 'HEADER.deposit-guarantee' | translate }}
+                >{{ "HEADER.deposit-guarantee" | translate }}
               </a>
               <div class="dropdown__content">
                 <a
-                  [routerLink]="['/deposit-guarantee/application-to-fund/.' | localize]"
+                  [routerLink]="[
+                    '/deposit-guarantee/application-to-fund/.' | localize
+                  ]"
                   routerLinkActive="router-link-active"
                   class="header__link"
                   href="/application-to-fund/"
-                  >{{ 'HEADER.application-to-fund' | translate }}</a
+                  >{{ "HEADER.application-to-fund" | translate }}</a
                 >
                 <a
                   [routerLink]="['/deposit-guarantee/fund-law/.' | localize]"
                   routerLinkActive="router-link-active"
                   class="header__link"
                   href="'/fund-law/"
-                  >{{ 'HEADER.fund-law' | translate }}</a
+                  >{{ "HEADER.fund-law" | translate }}</a
                 >
               </div>
             </div>
@@ -54,21 +56,34 @@
               routerLinkActive="router-link-active"
               class="header__link"
               href="/deposit-tax/"
-              >{{ 'HEADER.deposit-tax' | translate }}</a
-            >
-          </li>
-          <li>
-            <a
-              [routerLink]="['/deposit-bank-rates/.' | localize]"
-              routerLinkActive="router-link-active"
-              class="header__link"
-              href="/deposit-bank-rates/"
-              >{{ 'HEADER.deposit-bank-rates' | translate }}</a
+              >{{ "HEADER.deposit-tax" | translate }}</a
             >
           </li>
           <li>
             <div class="dropdown">
-              <a [routerLink]="[currentUrl]" class="header__link">{{ currentLang }} </a>
+              <a
+                [routerLink]="['/deposit-bank-rates/.' | localize]"
+                routerLinkActive="router-link-active"
+                class="header__link"
+                href="/deposit-bank-rates/"
+                >{{ "HEADER.deposit-bank-rates" | translate }}</a
+              >
+              <div class="dropdown__content">
+                <a
+                  [routerLink]="['/choose-deposit/.' | localize]"
+                  routerLinkActive="router-link-active"
+                  class="header__link"
+                  href="/choose-deposit/"
+                  >{{ "HEADER.choose-deposit" | translate }}</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <a [routerLink]="[currentUrl]" class="header__link"
+                >{{ currentLang }}
+              </a>
               <div class="dropdown__content">
                 <a
                   class="header__link"

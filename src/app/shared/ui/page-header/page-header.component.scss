@@ -10,6 +10,7 @@
     }
     @media screen and (max-width: $xs) {
       text-align: center;
+      font-size: 20px;
     }
     &-wrapper {
       width: 75%;
@@ -22,15 +23,20 @@
     background: #070f31;
     align-items: center;
     justify-content: center;
-    @media screen and (max-width: $xs) {
-      padding: 10px;
-    }
     @media screen and (max-width: $md) {
       margin-right: -25px;
+    }
+    @media screen and (max-width: $xs) {
+      margin-right: -10px;
+      padding: 10px;
     }
     &-image {
       width: 100px;
       height: 100px;
+      @media screen and (max-width: $xs) {
+        width: 70px;
+        height: 70px;
+      }
     }
   }
 }

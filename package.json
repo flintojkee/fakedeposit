@@ -31,6 +31,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@swimlane/ngx-charts": "^12.0.1",
+    "@swimlane/ngx-datatable": "^16.0.2",
     "angulartics2": "^8.1.0",
     "localize-router": "^2.0.0-RC.3",
     "localize-router-http-loader": "^1.0.2",

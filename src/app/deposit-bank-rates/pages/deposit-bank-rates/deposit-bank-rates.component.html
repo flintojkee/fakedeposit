@@ -1,0 +1,14 @@
+<fd-page-header [pageName]="pageName">{{ 'HEADER.deposit-bank-rates' | translate }}</fd-page-header>
+<div class="container">
+  <ngx-datatable
+    class="material striped"
+    [rows]="bankRates | async"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50"
+  >
+  </ngx-datatable>
+  <div class="text-box" [innerHTML]="pageData"></div>
+</div>

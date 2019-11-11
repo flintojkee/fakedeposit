@@ -1,10 +1,13 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil, map } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
+import { DepositBankRatesService } from '../../shared/deposit-bank-rates.service';
+import { BankRate } from '@fd/shared/models';
+import { ColumnMode } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'fd-deposit-bank-rates',
@@ -15,11 +18,21 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
   pageData: any;
   destroy$ = new Subject();
   pageName = 'deposit-bank-rates';
+  bankRates: Observable<BankRate[]>;
+  columns = [
+    { name: 'Title' },
+    { name: 'Hryvna' },
+    { name: 'Dollar', prop: 'dolar' },
+    { name: 'Euro' }
+  ];
+  ColumnMode = ColumnMode;
+
   constructor(
     private route: ActivatedRoute,
     public metaService: Meta,
     public titleService: Title,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    private depositBankRatesService: DepositBankRatesService
   ) {
     this.translateService
       .get(`META.${this.pageName}.title`)
@@ -40,6 +53,11 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.initPageData();
+    this.setBankRates();
+  }
+
+  initPageData() {
     this.route.data
       .pipe(
         map((res) => res.data),
@@ -48,6 +66,10 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.pageData = data;
       });
+  }
+
+  setBankRates() {
+    this.bankRates = this.depositBankRatesService.getBankRates();
   }
 
   ngOnDestroy() {

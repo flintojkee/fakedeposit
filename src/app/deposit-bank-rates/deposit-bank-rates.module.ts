@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DepositBankRatesComponent } from './pages/deposit-bank-rates.component';
+import { DepositBankRatesComponent } from './pages/deposit-bank-rates/deposit-bank-rates.component';
 import { LocalizeRouterModule } from 'localize-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { PageResolver } from '@fd/core/services';
 import { SharedModule } from '@fd/shared';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 const routes: Routes = [
   {
     path: '',
@@ -23,7 +23,8 @@ const routes: Routes = [
     SharedModule,
     TranslateModule,
     LocalizeRouterModule.forChild(routes),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxDatatableModule
   ]
 })
 export class DepositBankRatesModule {}

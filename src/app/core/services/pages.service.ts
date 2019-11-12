@@ -32,14 +32,18 @@ export class PagesService {
     'fund-law': {
       type: 'fund_law',
       name: 'FundLawPage'
+    },
+    'choose-deposit': {
+      type: 'choose_deposit',
+      name: 'ChooseDepositPage'
     }
   };
   api = 'https://fakedeposit-cms.herokuapp.com/api/v2/pages/?type=';
   getPageData(page: string) {
     return this.http
       .get<any>(
-        `${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=_,text&slug=${this.pages[page].type}-${this.translateService.currentLang}`
+        `${this.api}${this.pages[page].type}.${this.pages[page].name}&fields=*&slug=${this.pages[page].type}-${this.translateService.currentLang}`
       )
-      .pipe(map((res) => res.items[0].text));
+      .pipe(map((res) => res.items[0]));
   }
 }

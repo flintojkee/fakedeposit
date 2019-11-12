@@ -67,6 +67,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./about-project/about-project.module').then((m) => m.AboutProjectModule)
   },
+  { path: 'choose-deposit/.', loadChildren: () => import('./choose-deposit/choose-deposit.module').then(m => m.ChooseDepositModule) },
   // { path: 'home/.', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) }
 ];
 

@@ -56,7 +56,7 @@ export class CalculatorPageComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe((data) => {
-        this.pageData = data;
+        this.pageData = data.text;
       });
   }
 

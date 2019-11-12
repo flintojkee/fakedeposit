@@ -1,4 +1,4 @@
-@import 'global';
+@import "global";
 .header {
   background-color: #fcfcfc;
   color: #070f31;
@@ -9,7 +9,7 @@
   &__link {
     color: $primary;
     &:hover {
-      color: #feaa30
+      color: #feaa30;
     }
   }
   &__body {
@@ -63,6 +63,7 @@
     padding: 10px;
     border: 1px solid $medium;
     border-radius: 4px;
+    z-index: 1;
     &:hover {
       display: flex;
     }

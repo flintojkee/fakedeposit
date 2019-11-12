@@ -19,6 +19,9 @@ body {
   max-width: 1212px;
   margin: 0 auto;
   min-width: 296px;
+  @media screen and (max-width: $xs) {
+    padding: 0 10px;
+  }
 }
 
 .text-box {

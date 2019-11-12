@@ -38,7 +38,10 @@ const ROUTES = [
   'ua/deposit-tax',
   'en/deposit-bank-rates',
   'ru/deposit-bank-rates',
-  'ua/deposit-bank-rates'
+  'ua/deposit-bank-rates',
+  'en/choose-deposit',
+  'ru/choose-deposit',
+  'ua/choose-deposit'
 ];
 
 const APP_NAME = 'fakedeposit';

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ViewChild, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil, map } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
@@ -12,9 +12,13 @@ import { ColumnMode } from '@swimlane/ngx-datatable';
 @Component({
   selector: 'fd-deposit-bank-rates',
   templateUrl: './deposit-bank-rates.component.html',
-  styleUrls: ['./deposit-bank-rates.component.scss']
+  styleUrls: ['./deposit-bank-rates.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DepositBankRatesComponent implements OnInit, OnDestroy {
+  @ViewChild('fullBodyRow', { static: true }) fullBodyRow: TemplateRef<any>;
+  @ViewChild('fullBodyHeader', { static: true }) fullBodyHeader: TemplateRef<any>;
+  @ViewChild('myTable', { static: false }) table: any;
   pageData: any;
   destroy$ = new Subject();
   pageName = 'deposit-bank-rates';
@@ -23,7 +27,13 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
     { name: 'Title' },
     { name: 'Hryvna' },
     { name: 'Dollar', prop: 'dolar' },
-    { name: 'Euro' }
+    { name: 'Euro' },
+    {
+      cellTemplate: this.fullBodyRow,
+      headerTemplate: this.fullBodyHeader,
+      prop: 'body',
+      name: 'Description'
+    }
   ];
   ColumnMode = ColumnMode;
 
@@ -70,6 +80,13 @@ export class DepositBankRatesComponent implements OnInit, OnDestroy {
 
   setBankRates() {
     this.bankRates = this.depositBankRatesService.getBankRates();
+    this.depositBankRatesService.getBankRates().subscribe((res) => {
+      console.log(res);
+    });
+  }
+  toggleExpandRow(row) {
+    console.log('Toggled Expand Row!', row);
+    this.table.rowDetail.toggleExpandRow(row);
   }
 
   ngOnDestroy() {

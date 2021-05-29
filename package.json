@@ -65,7 +65,7 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack-cli": "^3.3.9",
-    "ws": "^7.1.2",
+    "ws": "^7.4.6",
     "xmlhttprequest": "^1.8.0"
   }
 }
